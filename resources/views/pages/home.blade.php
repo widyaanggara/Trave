@@ -68,22 +68,24 @@
                     <div class="banner-tag text-4xl lg:text-5xl lg:leading-[60px] font-bold text-white ">Trave Teman Perjalananmu</div>
                     <div class="banner-tag md:max-w-[520px] text-white mt-2 text-lg">Temukan destinasi impianmu dengan mudah dan nikmati pengalaman tak terlupakan bersama Trave.</div>
                     <div class="flex banner-tag">
-                        <div class="inline-block mt-6 text-white font-medium bg-violet-400 cursor-pointer px-5 py-4 rounded-full hover:bg-violet-300 transition-colors duration-200 text-center">
+                        <a href="#find" class="inline-block mt-6 text-white font-medium bg-violet-400 cursor-pointer px-5 py-4 rounded-full hover:bg-violet-300 transition-colors duration-200 text-center">
                             <div class="flex items-center">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="mr-1" height="24px" viewBox="0 -960 960 960" width="24px" fill="#ffffff">
                                     <path d="M480-107q-14 0-28-5t-25-15q-65-60-115-117t-83.5-110.5q-33.5-53.5-51-103T160-552q0-103 52-185t147-120q26-11 57.5-17t62.5-7q17 0 28.5 11t11.5 28q0 17-11.5 29.5T479-800q-24 0-47 4.5T386-782q-70 29-108 92t-38 138q0 71 59 162.5T480-186q61-56 106-106.5t75-96.5q20-31 35-63.5t21-67.5q4-23 17.5-32t28.5-7q15 2 25.5 12t8.5 27q-8 62-35.5 116.5T697-299q-43 57-88.5 101.5T533-127q-11 10-25 15t-28 5Zm0-373q33 0 56.5-23.5T560-560q0-33-23.5-56.5T480-640q-33 0-56.5 23.5T400-560q0 33 23.5 56.5T480-480Zm0-80Zm240-200v80q0 17 11.5 28.5T760-640q17 0 28.5-11.5T800-680v-80h80q17 0 28.5-11.5T920-800q0-17-11.5-28.5T880-840h-80v-80q0-17-11.5-28.5T760-960q-17 0-28.5 11.5T720-920v80h-80q-17 0-28.5 11.5T600-800q0 17 11.5 28.5T640-760h80Z"/>
                                 </svg>
                                 Find Destination
                             </div>
-                        </div>  
+                        </a>  
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
+    <section id="find"></section>
+
     {{-- Katagori Section --}}
-    <section class="w-[90%] max-w-[1200px] mx-auto mt-24 mb-10">
+    <section class="w-[90%] max-w-[1200px] mx-auto mt-24 mb-10" >
         <div class="font-bold text-2xl lg:text-3xl">Explore Beautiful Bali</div>
         <div class="mt-1 mb-4 text-base lg:text-lg">Temukan Destinasi Impian Bersama Teman Perjalanan Anda</div>
         <!-- Slider -->
