@@ -6,6 +6,10 @@ use App\Http\Controllers\DestinasiController;
 use App\Http\Controllers\PemesanantController;
 use App\Http\Controllers\UserManagementController;
 
+Route::get('/admin-acc', function () {
+    return view('admin.account');
+});
+
 Route::get('/riwayat', function () {
     return view('pages.riwayat-pembelian');
 })->name('riwayat');
