@@ -7,6 +7,8 @@ use Illuminate\Support\Facades\Storage;
 
 use Illuminate\Http\Request;
 
+
+
 class DestinasiController extends Controller
 {
     /**
@@ -20,6 +22,14 @@ class DestinasiController extends Controller
         // Mengirim data destinasi ke view
         return view('admin.destinasi', compact('destinasi'));
     }
+    // public function showKategoriDestination()
+    // {
+    //     // Mengambil semua data destinasi dari database
+    //     $destinasi = Destinasi::all();
+
+    //     // Mengirim data destinasi ke view
+    //     return view('admin.destinasi', compact('destinasi'));
+    // }
 
 
     /**
@@ -102,13 +112,17 @@ public function show($id_destinasi)
     return view('admin.detail-destinasi', compact('destination'));
 }
 
+
+
+
+
     /**
      * Show the form for editing the specified resource.
      */
     public function edit($id_destinasi)
     {
         // Ambil data destinasi berdasarkan id_destinasi
-        $destination = Destinasi::findOrFail($id_destinasi);
+        $destinasi = Destinasi::findOrFail($id_destinasi);
     
         // Kirim data ke view edit
         return view('admin.edit-destinasi', compact('destination'));

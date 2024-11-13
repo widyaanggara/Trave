@@ -38,9 +38,9 @@ Route::prefix('destinasi')->group(function () {
 
 require __DIR__.'/auth.php';
 
-Route::get('/pura', function () {
-    return view('pages.kategori-destination');
-});
+// Route::get('/pura', function () {
+//     return view('pages.kategori-destination');
+// });
 
 Route::get('/payment', function () {
     return view('pages.payment');
@@ -50,10 +50,10 @@ Route::get('/payment-success', function () {
     return view('pages.payment-success');
 });
 
-// Route::get('/detail', function () {
-//     return view('pages.detail');
-// });
-Route::get('/{id_destinasi}', [DestinasiController::class, 'show'])->name('destinasi.show');  // Show a specific destinasi
+Route::get('/detail', function () {
+    return view('pages.detail');
+});
+
 
 Route::get('/riwayat', function () {
     return view('pages.riwayat-pembelian');
