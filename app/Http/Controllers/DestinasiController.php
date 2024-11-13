@@ -94,13 +94,12 @@ class DestinasiController extends Controller
 
 public function show($id_destinasi)
 {
-    // Ambil destinasi berdasarkan id_destinasi
+    // Ambil data destinasi berdasarkan id_destinasi
     $destination = Destinasi::findOrFail($id_destinasi);
 
-    // Tampilkan halaman show dengan data destinasi
-    return view('admin.destinasi', compact('destination'));
+    // Tampilkan halaman detail dengan data destinasi
+    return view('admin.detail-destinasi', compact('destination'));
 }
-
 
     /**
      * Show the form for editing the specified resource.
