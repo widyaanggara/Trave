@@ -1,0 +1,37 @@
+#inner-dot-1{
+    width: 13px !important;
+    height: 13px !important;
+}
+
+#outer-circle-1{
+    width: 20px !important;
+    height: 20px !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#inner-dot-2{
+    width: 13px !important;
+    height: 13px !important;
+}
+
+#outer-circle-2{
+    width: 20px !important;
+    height: 20px !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.swiper-prev:hover{
+    background-color: black;
+    color: white;
+    transition: ease .2s;
+}
+.swiper-next:hover {
+    background-color: black;
+    color: white;
+    transition: ease .2s;
+}
+
