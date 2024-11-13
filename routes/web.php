@@ -60,3 +60,8 @@ Route::get('/detail', function () {
 Route::get('/profile', function () {
     return view('pages.account');
 });
+
+Route::get('/riwayat', function () {
+    return view('pages.riwayat-pembelian');
+});
+

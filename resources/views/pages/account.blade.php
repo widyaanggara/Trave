@@ -15,60 +15,52 @@
 
     <x-navbar />
 
-    {{-- <div class="flex items-center justify-center min-h-screen">
-        <div class="bg-white shadow-md rounded-lg w-96 p-6">
-            <!-- Foto Profil -->
-            <div class="flex justify-center mb-4">
-                <img src="https://via.placeholder.com/150" alt="User Profile" class="w-24 h-24 rounded-full object-cover">
-            </div>
 
-            <!-- Informasi Pengguna -->
-            <div class="space-y-4">
-                <!-- Username -->
-                <div>
-                    <label class="block text-gray-600 text-sm font-medium">Username</label>
-                    <input type="text" value="username123" class="w-full mt-1 px-3 py-2 bg-gray-100 border border-gray-300 rounded-md" readonly>
-                </div>
+    <section class="w-[90%] max-w-[1200px] mx-auto flex flex-col mb-14 h-full lg:h-screen">
 
-                <!-- Email -->
-                <div>
-                    <label class="block text-gray-600 text-sm font-medium">Email</label>
-                    <input type="email" value="user@example.com" class="w-full mt-1 px-3 py-2 bg-gray-100 border border-gray-300 rounded-md" readonly>
-                </div>
-
-                <!-- Password -->
-                <div>
-                    <label class="block text-gray-600 text-sm font-medium">Password</label>
-                    <input type="password" value="password123" class="w-full mt-1 px-3 py-2 bg-gray-100 border border-gray-300 rounded-md" readonly>
-                </div>
-
-                <!-- No HP -->
-                <div>
-                    <label class="block text-gray-600 text-sm font-medium">Nomor HP</label>
-                    <input type="tel" value="+6281234567890" class="w-full mt-1 px-3 py-2 bg-gray-100 border border-gray-300 rounded-md" readonly>
-                </div>
-            </div>
-
-            <!-- Tombol Edit dan Logout -->
-            <div class="mt-6 flex justify-between">
-                <button class="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition">
-                    Edit Profil
-                </button>
-                <button class="px-4 py-2 bg-red-600 text-white rounded-md hover:bg-red-700 transition">
-                    Logout
-                </button>
-            </div>
-        </div>
-    </div> --}}
-
-    <section class="w-[90%] max-w-[1200px] mx-auto flex flex-col mb-10">
-        <div class="mt-20 grid lg:grid-cols-[3fr_9fr] gap-10">
+        <div class="mt-[140px] grid lg:grid-cols-[3fr_9fr] gap-8">
             
-            <div class="border shadow-md rounded-md p-4">
-                <div class="font-medium">Navigasi Profil</div>
-            </div>
+            {{-- Navigation --}}
+            <x-account-navigation />
 
-            <div>asa</div>
+            {{-- Account Detail --}}
+            <div>
+                <div class="font-bold text-3xl text-center mb-1 mt-10 lg:mt-0">Welcome, Anggara</div>
+                <div class="text-gray-600 mb-10 text-center">Informasi mengenai profil dan preferensi kamu di seluruh layanan myskill.</div>
+                <div class="flex flex-col gap-5">
+                    <div>
+                        <label class="block text-gray-600 text-sm font-medium mb-1">Username</label>
+                        <input type="text" value="username123" class="w-full mt-1 px-3 py-2 bg-gray-100 border border-gray-300 rounded-md">
+                    </div>
+                    {{-- Nomor Hp --}}
+                    <div>
+                        <label class="block text-gray-600 text-sm font-medium">Nomor HP</label>
+                        <input type="tel" value="+6281234567890" class="w-full mt-1 px-3 py-2 bg-gray-100 border border-gray-300 rounded-md">
+                    </div>
+
+                    <div class="lg:grid grid-cols-[6fr_6fr] gap-6">
+                        {{-- Email --}}
+                        <div>
+                            <label class="block text-gray-600 text-sm font-medium">Email</label>
+                            <input type="email" value="user@example.com" class="w-full mt-1 px-3 py-2 bg-gray-100 border border-gray-300 rounded-md">
+                        </div>
+                        {{-- Password --}}
+                        <div>
+                            <label class="block text-gray-600 text-sm font-medium">Password</label>
+                            <input type="password" value="password123" class="w-full mt-1 px-3 py-2 bg-gray-100 border border-gray-300 rounded-md">
+                        </div>
+                    </div>
+
+                    {{-- Tombol Edit --}}
+                    <div class="mt-4 sm:mt-6 flex sm:justify-end">
+                        <button class="w-full sm:w-auto px-4 py-3 bg-green-500 text-white rounded-md hover:bg-green-600 transition">
+                            Simpan Perubahan
+                        </button>
+                    </div>
+                    
+
+                </div>
+            </div>
 
         </div>
     </section>
