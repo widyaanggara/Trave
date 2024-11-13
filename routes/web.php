@@ -32,7 +32,7 @@ Route::prefix('destinasi')->group(function () {
     Route::post('/', [DestinasiController::class, 'store'])->name('destinasi.store');  // Store a new destinasi
     Route::get('/{id_destinasi}/edit', [DestinasiController::class, 'edit'])->name('destinasi.edit');  // Show edit form
     Route::put('/{id_destinasi}', [DestinasiController::class, 'update'])->name('destinasi.update');// Update a destinasi
-    Route::delete('/{id_destinasi}', [DestinasiController::class, 'destroy'])->name('destinasi.destroy');  // Delete a destinasi
+    Route::delete('/{id_destinasi}', [DestinasiController::class, 'destroy'])->name('destinasi.destroy'); // Delete a destinasi
     Route::get('/{id_destinasi}', [DestinasiController::class, 'show'])->name('destinasi.show');  // Show a specific destinasi
 });
 
@@ -50,9 +50,10 @@ Route::get('/payment-success', function () {
     return view('pages.payment-success');
 });
 
-Route::get('/detail', function () {
-    return view('pages.detail');
-});
+// Route::get('/detail', function () {
+//     return view('pages.detail');
+// });
+Route::get('/{id_destinasi}', [DestinasiController::class, 'show'])->name('destinasi.show');  // Show a specific destinasi
 
 Route::get('/riwayat', function () {
     return view('pages.riwayat-pembelian');

@@ -38,12 +38,12 @@
                 <div class="relative cursor-pointer group overflow-hidden">
                     <div class="overflow-hidden rounded-lg"> 
                         <div class="relative w-full overflow-hidden rounded group" style="padding-top: 66%;">
-                            <img src="{{ asset('images/lempuyang.jpg') }}" alt="Background Image" class="absolute top-0 left-0 w-full h-full object-cover transition-transform duration-300 transform group-hover:scale-105">
+                            <img src="{{ asset('storage/' . $destination->thumbnail) }}" alt="Background Image" class="absolute top-0 left-0 w-full h-full object-cover transition-transform duration-300 transform group-hover:scale-105">
                         </div>
                     </div>
                     <div class="">
                         <div class="pt-1 pb-1 text-black text-lg font-bold transition-transform duration-300 group-hover:text-gray-700 group-hover:underline">
-                            Pura Lempuyang
+                            {{ $destination->name }}
                         </div>
                         <div class="flex gap-[2px] justify-start items-center">
                             <div class="w-[0.8rem] h-[0.8rem] bg-[#22c55e] rounded-full"></div>
@@ -53,7 +53,7 @@
                             <div class="w-[0.8rem] h-[0.8rem] bg-[#22c55e] rounded-full"></div>
                             <div class="ml-2 text-sm text-gray-600">4002</div>
                         </div>
-                        <div class="text-sm text-gray-600 mt-0">Location : Kabupaten Karangasem</div>
+                        <div class="text-sm text-gray-600 mt-0">Location :  {{ $destination->location }}</div>
                     </div>
                 </div>
             </a>

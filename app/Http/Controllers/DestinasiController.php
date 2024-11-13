@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Destinasi;
+use Illuminate\Support\Facades\Storage;
 
 use Illuminate\Http\Request;
 
@@ -183,8 +184,32 @@ public function update(Request $request, $id_destinasi)
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+
+    public function destroy($id_destinasi)
     {
-        //
+        // Ambil data destinasi berdasarkan id_destinasi
+        $destination = Destinasi::findOrFail($id_destinasi);
+
+        // Hapus file gambar jika ada
+        if ($destination->thumbnail) {
+            Storage::disk('public')->delete($destination->thumbnail);
+        }
+        if ($destination->galeri_1) {
+            Storage::disk('public')->delete($destination->galeri_1);
+        }
+        if ($destination->galeri_2) {
+            Storage::disk('public')->delete($destination->galeri_2);
+        }
+        if ($destination->galeri_3) {
+            Storage::disk('public')->delete($destination->galeri_3);
+        }
+        
+
+        // Hapus data destinasi dari database
+        $destination->delete();
+
+        // Redirect ke halaman destinasi dengan pesan sukses
+        return redirect()->route('destinasi.index')->with('success', 'Destinasi berhasil dihapus!');
     }
+
 }

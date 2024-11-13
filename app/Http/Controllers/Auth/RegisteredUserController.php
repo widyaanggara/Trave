@@ -44,10 +44,19 @@ class RegisteredUserController extends Controller
             'password' => Hash::make($request->password),
         ]);
 
+           
         event(new Registered($user));
 
+      
         Auth::login($user);
 
+        // Cek peran pengguna setelah login
+        if (Auth::user()->role === 'customer') {
+            // Jika peran adalah 'customer', arahkan ke halaman home
+            return redirect(route('home'));
+        }
+
+        // Jika peran bukan 'customer', arahkan ke dashboard
         return redirect(route('dashboard', absolute: false));
     }
 }

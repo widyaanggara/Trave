@@ -12,7 +12,6 @@
             <img src="{{ $destination->thumbnail ? Storage::url($destination->thumbnail) : 'https://via.placeholder.com/400' }}" alt="{{ $destination->nama_destinasi }}" class="w-full h-48 object-cover">
             <div class="p-4">
                 <h2 class="text-xl font-semibold text-gray-900">{{ $destination->nama_destinasi }}</h2>
-                <p class="text-gray-600 mt-2">{{ Str::limit($destination->description, 100) }}</p>
                 <div class="mt-4">
                     <a href="{{ route('destinasi.show', $destination->id_destinasi) }}" class="flex items-center text-blue-500 hover:underline">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" viewBox="0 0 20 20" fill="currentColor">

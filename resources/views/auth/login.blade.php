@@ -53,7 +53,7 @@
                     {{ __('Log in') }}
                 </x-primary-button>
             </div>
-            <p class="text-left text-gray-600 text-sm">Don't have an account? <span class="text-blue-500"><a href="#">Register</a></span></p>
+            <p class="text-left text-gray-600 text-sm">Don't have an account? <span class="text-blue-500"><a href="{{ route('register') }}">Register</a></span></p>
             <button class="mt-4 w-full py-2 h-12 bg-orange-500 text-white font-medium rounded-md transition ease-in-out duration-300 hover:bg-orange-400">Login</button>
         </div>
     </section>
