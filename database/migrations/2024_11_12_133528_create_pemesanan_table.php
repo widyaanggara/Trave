@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('pemesanan', function (Blueprint $table) {
             $table->increments('id_pemesanan'); // Primary Key, Auto Increment
             $table->unsignedInteger('customer_id'); // FK ke customer
-            $table->unsignedInteger('destinasi_id'); // FK ke destinasi
+            $table->unsignedBigInteger('destinasi_id'); // FK ke destinasi
             $table->date('date_order');
             $table->integer('jumlah_pax', false, true); // unsigned
             $table->enum('status', ['confirmed', 'waiting', 'canceled']);
