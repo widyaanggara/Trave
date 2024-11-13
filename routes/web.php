@@ -11,14 +11,19 @@ Route::get('/', function () {
 });
 
 Route::get('/dashboard', function () {
-    return view('dashboard');
+    return view('admin.dashboard-admin');
 })->middleware(['auth', 'verified'])->name('dashboard');
+
+Route::middleware('auth')->group(function () {
+    Route::get('/profile', [ProfileController::class, 'index'])->name('profile'); // Define profile route here
+    Route::get('/profile/edit', [ProfileController::class, 'edit'])->name('profile.edit'); // Profile edit route
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+});
 
 Route::get('/home', function () {
     return view('pages.home');
 })->middleware(['auth', 'verified'])->name('home');
-
-Route::get('/profile', [ProfileController::class, 'index'])->name('profile');
 
 // Routes for DestinasiController
 Route::prefix('destinasi')->group(function () {
@@ -29,13 +34,6 @@ Route::prefix('destinasi')->group(function () {
     Route::put('/{id_destinasi}', [DestinasiController::class, 'update'])->name('destinasi.update');  // Update a destinasi
     Route::delete('/{id_destinasi}', [DestinasiController::class, 'destroy'])->name('destinasi.destroy');  // Delete a destinasi
     Route::get('/{id_destinasi}', [DestinasiController::class, 'show'])->name('destinasi.show');  // Show a specific destinasi
-});
-
-
-Route::middleware('auth')->group(function () {
-    // Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
 require __DIR__.'/auth.php';
@@ -52,16 +50,10 @@ Route::get('/payment-success', function () {
     return view('pages.payment-success');
 });
 
-
 Route::get('/detail', function () {
     return view('pages.detail');
-});
-
-Route::get('/profile', function () {
-    return view('pages.account');
 });
 
 Route::get('/riwayat', function () {
     return view('pages.riwayat-pembelian');
 });
-
