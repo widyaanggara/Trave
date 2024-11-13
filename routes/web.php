@@ -52,6 +52,11 @@ Route::get('/payment-success', function () {
     return view('pages.payment-success');
 });
 
+
 Route::get('/detail', function () {
     return view('pages.detail');
+});
+
+Route::get('/profile', function () {
+    return view('pages.account');
 });
