@@ -31,7 +31,7 @@ Route::prefix('destinasi')->group(function () {
     Route::get('/create', [DestinasiController::class, 'create'])->name('destinasi.create'); // Show create form
     Route::post('/', [DestinasiController::class, 'store'])->name('destinasi.store');  // Store a new destinasi
     Route::get('/{id_destinasi}/edit', [DestinasiController::class, 'edit'])->name('destinasi.edit');  // Show edit form
-    Route::put('/{id_destinasi}', [DestinasiController::class, 'update'])->name('destinasi.update');  // Update a destinasi
+    Route::put('/{id_destinasi}', [DestinasiController::class, 'update'])->name('destinasi.update');// Update a destinasi
     Route::delete('/{id_destinasi}', [DestinasiController::class, 'destroy'])->name('destinasi.destroy');  // Delete a destinasi
     Route::get('/{id_destinasi}', [DestinasiController::class, 'show'])->name('destinasi.show');  // Show a specific destinasi
 });

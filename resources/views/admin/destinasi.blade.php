@@ -9,7 +9,7 @@
         <!-- Menampilkan destinasi dari database -->
         @foreach($destinasi as $destination)
         <div class="bg-white shadow-lg rounded-lg overflow-hidden transform transition duration-300 hover:scale-105 hover:shadow-2xl">
-            <img src="{{ $destination->thumbnail ? asset('storage/' . $destination->thumbnail) : 'https://via.placeholder.com/400' }}" alt="{{ $destination->nama_destinasi }}" class="w-full h-48 object-cover">
+            <img src="{{ $destination->thumbnail ? Storage::url($destination->thumbnail) : 'https://via.placeholder.com/400' }}" alt="{{ $destination->nama_destinasi }}" class="w-full h-48 object-cover">
             <div class="p-4">
                 <h2 class="text-xl font-semibold text-gray-900">{{ $destination->nama_destinasi }}</h2>
                 <p class="text-gray-600 mt-2">{{ Str::limit($destination->description, 100) }}</p>

@@ -2,208 +2,207 @@
 
 @section('content')
 
-<div class="container mx-auto  px-0 lg:px-6 py-10">
-    <div class="bg-white shadow-lg rounded-lg p-8 sm:p-10 md:p-12 lg:w-2/3 mx-auto">
-        <h2 class="text-3xl font-semibold text-blue-600 mb-8 text-center">Edit Informasi Destinasi</h2>
+<div class="container mx-auto px-6 py-10">
+    <h1 class="text-4xl font-extrabold text-gray-800 mb-10 text-center">Edit Destinasi</h1>
 
-        <form>
-            <div class="mb-6">
-                <label for="name" class="block text-base font-medium text-gray-700 mb-2">Nama Tempat</label>
-                <input 
-                    type="text" 
-                    id="name" 
-                    name="name" 
-                    required 
-                    class="w-full border border-gray-300 rounded-lg p-3 text-gray-800 placeholder-gray-400 shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-200 focus:ring-opacity-50" 
-                    placeholder="Nama Tempat Wisata"
-                >
-            </div>
+    <div class="bg-white shadow-lg rounded-lg overflow-hidden">
+        <form action="{{ route('destinasi.update', $destination->id_destinasi) }}" method="POST" enctype="multipart/form-data">
+            @csrf
+            @method('PUT')
 
-            <div class="mb-6">
-                <label for="address" class="block text-base font-medium text-gray-700 mb-2">Alamat</label>
-                <input 
-                    type="text" 
-                    id="address" 
-                    name="address" 
-                    required 
-                    class="w-full border border-gray-300 rounded-lg p-3 text-gray-800 placeholder-gray-400 shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-200 focus:ring-opacity-50" 
-                    placeholder="Alamat lengkap destinasi"
-                >
-            </div>
+            @if ($errors->any())
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
 
-            <div class="mb-6">
-                <label for="description" class="block text-base font-medium text-gray-700 mb-2">Deskripsi</label>
-                <textarea 
-                    id="description" 
-                    name="description" 
-                    rows="4" 
-                    required 
-                    class="w-full border border-gray-300 rounded-lg p-3 text-gray-800 placeholder-gray-400 shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-200 focus:ring-opacity-50" 
-                    placeholder="Deskripsi tentang tempat wisata ini"
-                ></textarea>
-            </div>
+            <div class="p-6 space-y-6">
 
-            <!-- Thumbnail Image with Preview -->
-            <div class="mb-6">
-                <label for="thumbnail" class="block text-base font-medium text-gray-700 mb-2">Thumbnail</label>
-                <input 
-                    type="file" 
-                    id="thumbnail" 
-                    name="thumbnail" 
-                    accept="image/*" 
-                    class="w-full border border-gray-300 rounded-lg p-2.5 text-gray-800 shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-200 focus:ring-opacity-50"
-                >
-                <small class="text-gray-500">Format: JPG, PNG.</small>
-                <!-- Preview Thumbnail -->
-                <img id="thumbnail-preview" src="{{ asset('images/thumbnail photo.png') }}" alt="Preview Thumbnail" class="mt-4 w-24 h-24 object-cover rounded-lg">
-            </div>
+                <!-- Nama Destinasi -->
+                <div>
+                    <label for="nama_destinasi" class="block text-lg font-semibold text-gray-800">Nama Destinasi</label>
+                    <input type="text" name="nama_destinasi" id="nama_destinasi" value="{{ old('nama_destinasi', $destination->nama_destinasi) }}" class="mt-2 w-full p-3 border border-gray-300 rounded-lg" required>
+                    @error('nama_destinasi') 
+                        <span class="text-red-500 text-sm">{{ $message }}</span> 
+                    @enderror
+                </div>
 
-            <!-- Gallery Images in Grid with Preview -->
-            <div class="mb-6">
-                <label class="block text-base font-medium text-gray-700 mb-2">Galeri (3 Foto)</label>
-                <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
-                    <!-- Gallery Image 1 -->
-                    <div>
-                        <input 
-                            type="file" 
-                            name="gallery[]" 
-                            accept="image/*" 
-                            class="w-full border border-gray-300 rounded-lg p-2.5 text-gray-800 shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-200 focus:ring-opacity-50"
-                        >
-                        <img id="gallery-preview-1" src="{{ asset('images/galery.png') }}" alt="Preview Galeri 1" class="mt-2 w-full h-28 object-cover rounded-lg">
+                <!-- Sub Judul -->
+                <div>
+                    <label for="sub_judul" class="block text-lg font-semibold text-gray-800">Sub Judul</label>
+                    <input type="text" name="sub_judul" id="sub_judul" value="{{ old('sub_judul', $destination->sub_judul) }}" class="mt-2 w-full p-3 border border-gray-300 rounded-lg" required>
+                    @error('sub_judul') 
+                        <span class="text-red-500 text-sm">{{ $message }}</span> 
+                    @enderror
+                </div>
+
+                <!-- Alamat -->
+                <div>
+                    <label for="alamat" class="block text-lg font-semibold text-gray-800">Alamat</label>
+                    <input type="text" name="alamat" id="alamat" value="{{ old('alamat', $destination->alamat) }}" class="mt-2 w-full p-3 border border-gray-300 rounded-lg" required>
+                    @error('alamat') 
+                        <span class="text-red-500 text-sm">{{ $message }}</span> 
+                    @enderror
+                </div>
+
+                <!-- Description -->
+                <div>
+                    <label for="description" class="block text-lg font-semibold text-gray-800">Description</label>
+                    <textarea name="description" id="description" rows="4" class="mt-2 w-full p-3 border border-gray-300 rounded-lg" required>{{ old('description', $destination->description) }}</textarea>
+                    @error('description') 
+                        <span class="text-red-500 text-sm">{{ $message }}</span> 
+                    @enderror
+                </div>
+
+                <!-- Thumbnail Image -->
+                <div class="mb-6">
+                    <label for="thumbnail" class="block text-base font-medium text-gray-700 mb-2">Thumbnail</label>
+                    <input
+                        type="file"
+                        id="thumbnail"
+                        name="thumbnail"
+                        accept="image/*"
+                        class="w-full border border-gray-300 rounded-lg p-2.5 text-gray-800 shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-200 focus:ring-opacity-50"
+                    >
+                    <small class="text-gray-500">Format: JPG, PNG.</small>
+                    @error('thumbnail') 
+                        <span class="text-red-500 text-sm">{{ $message }}</span> 
+                    @enderror
+                    @if($destination->thumbnail)
+                        <div class="mt-4">
+                            <h3 class="text-lg font-semibold text-gray-800">Current Thumbnail</h3>
+                            <img src="{{ asset('storage/' . $destination->thumbnail) }}" alt="Current Thumbnail" class="w-32 h-32 object-cover rounded-lg mt-2">
+                        </div>
+                    @endif
+                </div>
+
+                <!-- Gallery Images -->
+                <div class="mb-6">
+                    <label class="block text-base font-medium text-gray-700 mb-2">Galeri (3 Foto)</label>
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                        <!-- Gallery Image 1 -->
+                        <div>
+                            <input
+                                type="file"
+                                name="galeri_1"
+                                accept="image/*"
+                                class="w-full border border-gray-300 rounded-lg p-2.5 text-gray-800 shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-200 focus:ring-opacity-50"
+                            >
+                            @if($destination->galeri_1)
+                                <div class="mt-2">
+                                    <img src="{{ asset('storage/' . $destination->galeri_1) }}" alt="Galeri 1" class="w-32 h-32 object-cover rounded-lg">
+                                </div>
+                            @endif
+                        </div>
+
+                        <!-- Gallery Image 2 -->
+                        <div>
+                            <input
+                                type="file"
+                                name="galeri_2"
+                                accept="image/*"
+                                class="w-full border border-gray-300 rounded-lg p-2.5 text-gray-800 shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-200 focus:ring-opacity-50"
+                            >
+                            @if($destination->galeri_2)
+                                <div class="mt-2">
+                                    <img src="{{ asset('storage/' . $destination->galeri_2) }}" alt="Galeri 2" class="w-32 h-32 object-cover rounded-lg">
+                                </div>
+                            @endif
+                        </div>
+
+                        <!-- Gallery Image 3 -->
+                        <div>
+                            <input
+                                type="file"
+                                name="galeri_3"
+                                accept="image/*"
+                                class="w-full border border-gray-300 rounded-lg p-2.5 text-gray-800 shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-200 focus:ring-opacity-50"
+                            >
+                            @if($destination->galeri_3)
+                                <div class="mt-2">
+                                    <img src="{{ asset('storage/' . $destination->galeri_3) }}" alt="Galeri 3" class="w-32 h-32 object-cover rounded-lg">
+                                </div>
+                            @endif
+                        </div>
                     </div>
-                    
-                    <!-- Gallery Image 2 -->
-                    <div>
-                        <input 
-                            type="file" 
-                            name="gallery[]" 
-                            accept="image/*" 
-                            class="w-full border border-gray-300 rounded-lg p-2.5 text-gray-800 shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-200 focus:ring-opacity-50"
-                        >
-                        <img id="gallery-preview-2" src="{{ asset('images/galery.png') }}" alt="Preview Galeri 2" class="mt-2 w-full h-28 object-cover rounded-lg">
-                    </div>
-
-                    <!-- Gallery Image 3 -->
-                    <div>
-                        <input 
-                            type="file" 
-                            name="gallery[]" 
-                            accept="image/*" 
-                            class="w-full border border-gray-300 rounded-lg p-2.5 text-gray-800 shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-200 focus:ring-opacity-50"
-                        >
-                        <img id="gallery-preview-3" src="{{ asset('images/galery.png') }}" alt="Preview Galeri 3" class="mt-2 w-full h-28 object-cover rounded-lg">
-                    </div>
-                </div>
-            </div>
-
-            <div class="mb-6">
-                <label for="category" class="block text-base font-medium text-gray-700 mb-2">Kategori</label>
-                <select 
-                    id="category" 
-                    name="category" 
-                    required 
-                    class="w-full border border-gray-300 rounded-lg p-3 text-gray-800 shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-200 focus:ring-opacity-50"
-                >
-                    <option value="">Pilih Kategori</option>
-                    <option value="pantai">Pantai</option>
-                    <option value="pura">Pura</option>
-                    <option value="artmarket">Art Market</option>
-                    <option value="petualanganalam">Petualangan Alam</option>
-                    <option value="snorkeling">Snorkeling</option>
-                </select>
-            </div>
-
-            {{--  --}}
-            <div>
-                <div class="mb-6">
-                    <label for="sub" class="block text-base font-medium text-gray-700 mb-2">Sub Judul</label>
-                    <input 
-                        type="text" 
-                        id="sub" 
-                        name="sub" 
-                        required 
-                        class="w-full border border-gray-300 rounded-lg p-3 text-gray-800 placeholder-gray-400 shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-200 focus:ring-opacity-50" 
-                        placeholder="Sub Nama Tempat Wisata"
-                    >
+                    @error('galeri_1') 
+                        <span class="text-red-500 text-sm">{{ $message }}</span> 
+                    @enderror
+                    @error('galeri_2') 
+                        <span class="text-red-500 text-sm">{{ $message }}</span> 
+                    @enderror
+                    @error('galeri_3') 
+                        <span class="text-red-500 text-sm">{{ $message }}</span> 
+                    @enderror
                 </div>
 
-                <div class="mb-6">
-                    <label for="duration" class="block text-base font-medium text-gray-700 mb-2">Duration</label>
-                    <input 
-                        type="text" 
-                        id="duration" 
-                        name="duration" 
-                        required 
-                        class="w-full border border-gray-300 rounded-lg p-3 text-gray-800 placeholder-gray-400 shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-200 focus:ring-opacity-50" 
-                        placeholder="Durasi tempat wisata"
-                    >
+                <!-- Kategori -->
+                <div>
+                    <label for="kategori" class="block text-lg font-semibold text-gray-800">Kategori</label>
+                    <input type="text" name="kategori" id="kategori" value="{{ old('kategori', $destination->kategori) }}" class="mt-2 w-full p-3 border border-gray-300 rounded-lg" required>
+                    @error('kategori') 
+                        <span class="text-red-500 text-sm">{{ $message }}</span> 
+                    @enderror
                 </div>
 
-                {{-- harga Dengan Guide --}}
-                <div class="font-bold text-xl">Harga</div>
-                
-                <div class="font-semibold mt-2">Harga paket guide</div>
-                <div class="mb-1">
-                    <label for="hargaguidedewasa" class="block text-base font-medium text-gray-700 mb-2">Dewasa</label>
-                    <input 
-                        type="number" 
-                        id="hargaguidedewasa" 
-                        name="hargaguidedewasa" 
-                        required 
-                        class="w-full border border-gray-300 rounded-lg p-3 text-gray-800 placeholder-gray-400 shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-200 focus:ring-opacity-50" 
-                        placeholder="Harga dewasa dengan guide"
-                    >
-                </div>
-                <div class="mb-6">
-                    <label for="hargaguideanak" class="block text-base font-medium text-gray-700 mb-2">Anak-anak</label>
-                    <input 
-                        type="number" 
-                        id="hargaguideanak" 
-                        name="hargaguideanak" 
-                        required 
-                        class="w-full border border-gray-300 rounded-lg p-3 text-gray-800 placeholder-gray-400 shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-200 focus:ring-opacity-50" 
-                        placeholder="Harga anak-anak dengan guide"
-                    >
+                <!-- Durasi -->
+                <div>
+                    <label for="duration" class="block text-lg font-semibold text-gray-800">Durasi</label>
+                    <input type="text" name="duration" id="duration" value="{{ old('duration', $destination->duration) }}" class="mt-2 w-full p-3 border border-gray-300 rounded-lg" required>
+                    @error('duration') 
+                        <span class="text-red-500 text-sm">{{ $message }}</span> 
+                    @enderror
                 </div>
 
-                <div class="font-semibold mt-2">Harga tanpa paket guide</div>
-                <div class="mb-1">
-                    <label for="hargatanpadewasa" class="block text-base font-medium text-gray-700 mb-2">Dewasa</label>
-                    <input 
-                        type="number" 
-                        id="hargatanpadewasa" 
-                        name="hargatanpadewasa" 
-                        required 
-                        class="w-full border border-gray-300 rounded-lg p-3 text-gray-800 placeholder-gray-400 shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-200 focus:ring-opacity-50" 
-                        placeholder="Harga dewasa tanpa guide"
-                    >
+                <!-- Harga Dewasa Paket -->
+                <div>
+                    <label for="harga_dewasa_paket" class="block text-lg font-semibold text-gray-800">Harga Dewasa (Paket)</label>
+                    <input type="number" name="harga_dewasa_paket" id="harga_dewasa_paket" value="{{ old('harga_dewasa_paket', $destination->harga_dewasa_paket) }}" class="mt-2 w-full p-3 border border-gray-300 rounded-lg" required>
+                    @error('harga_dewasa_paket') 
+                        <span class="text-red-500 text-sm">{{ $message }}</span> 
+                    @enderror
                 </div>
-                <div class="mb-6">
-                    <label for="hargatanpaanak" class="block text-base font-medium text-gray-700 mb-2">Anak-anak</label>
-                    <input 
-                        type="number" 
-                        id="hargatanpaanak" 
-                        name="hargatanpaanak" 
-                        required 
-                        class="w-full border border-gray-300 rounded-lg p-3 text-gray-800 placeholder-gray-400 shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-200 focus:ring-opacity-50" 
-                        placeholder="Harga anak-anak tanpa guide"
-                    >
+                <!-- Harga Anak Paket -->
+                <div>
+                    <label for="harga_anak_paket" class="block text-lg font-semibold text-gray-800">Harga Anak (Paket)</label>
+                    <input type="number" name="harga_anak_paket" id="harga_anak_paket" value="{{ old('harga_anak_paket', $destination->harga_anak_paket) }}" class="mt-2 w-full p-3 border border-gray-300 rounded-lg" required>
+                    @error('harga_anak_paket') 
+                        <span class="text-red-500 text-sm">{{ $message }}</span> 
+                    @enderror
                 </div>
-            </div>
 
-            {{-- button --}}
-            <div class="flex justify-between">
-                <a href="{{ route('destinasi.index') }}" class="bg-gray-300 text-gray-800 px-4 py-3 rounded-lg hover:bg-gray-400 transition-colors duration-300">
-                    Batal
-                </a>
-                <button 
-                    type="submit" 
-                    class="bg-blue-500 text-white px-6 py-3 rounded-lg font-semibold text-lg flex items-center transition-colors duration-300 hover:bg-blue-600 focus:ring-4 focus:ring-blue-200"
-                >
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="currentColor" viewBox="0 0 24 24"><path d="M5 20h14v-2H5v2zm0-4h14v-2H5v2zm0-4h14v-2H5v2zm0-4h14V6H5v2z"/></svg>
-                    Simpan
-                </button>
+
+                <!-- Harga Dewasa Nonpaket -->
+                <div>
+                    <label for="harga_dewasa
+                <!-- Harga Dewasa Nonpaket -->
+                <div>
+                    <label for="harga_dewasa_nonpaket" class="block text-lg font-semibold text-gray-800">Harga Dewasa (Nonpaket)</label>
+                    <input type="number" name="harga_dewasa_nonpaket" id="harga_dewasa_nonpaket" value="{{ old('harga_dewasa_nonpaket', $destination->harga_dewasa_nonpaket) }}" class="mt-2 w-full p-3 border border-gray-300 rounded-lg" required>
+                    @error('harga_dewasa_nonpaket') 
+                        <span class="text-red-500 text-sm">{{ $message }}</span> 
+                    @enderror
+                </div>
+
+                <!-- Harga Anak Nonpaket -->
+                <div>
+                    <label for="harga_anak_nonpaket" class="block text-lg font-semibold text-gray-800">Harga Anak (Nonpaket)</label>
+                    <input type="number" name="harga_anak_nonpaket" id="harga_anak_nonpaket" value="{{ old('harga_anak_nonpaket', $destination->harga_anak_nonpaket) }}" class="mt-2 w-full p-3 border border-gray-300 rounded-lg" required>
+                    @error('harga_anak_nonpaket') 
+                        <span class="text-red-500 text-sm">{{ $message }}</span> 
+                    @enderror
+                </div>
+
+                <!-- Submit Button -->
+                <div class="flex justify-center mt-8">
+                    <button type="submit" class="bg-blue-500 text-white px-6 py-3 rounded-lg hover:bg-blue-600 transition duration-300">
+                        Update Destinasi
+                    </button>
+                </div>
             </div>
         </form>
     </div>
