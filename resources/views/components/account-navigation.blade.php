@@ -5,7 +5,7 @@
             <span class="material-symbols-outlined" style="font-size: 1.2rem">person</span>
             <div class="ml-2">Profil Saya</div>
         </a>
-        <a href="/riwayat" class="flex items-center hover:bg-gray-300 transition-colors rounded-md py-2 px-3">
+        <a href="{{ route('riwayat') }}" class="flex items-center hover:bg-gray-300 transition-colors rounded-md py-2 px-3">
             <span class="material-symbols-outlined" style="font-size: 1.2rem">receipt_long</span>
             <div class="ml-2">Riwayat Pembelian</div>
         </a>

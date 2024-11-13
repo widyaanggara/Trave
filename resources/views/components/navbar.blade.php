@@ -50,7 +50,7 @@
 
         @auth
             {{-- Tampilkan ikon user jika user sudah login --}}
-            <a href=""> {{-- Arahkan ke halaman profil atau halaman lain yang sesuai --}}
+            <a href="{{ route('profile') }}"> {{-- Arahkan ke halaman profil atau halaman lain yang sesuai --}}
                 <img class="w-9 cursor-pointer" src="{{ asset('images/user.png') }}" alt="user">
             </a>
         @endauth
@@ -68,7 +68,7 @@
 
         @auth
             {{-- Tampilkan ikon user di layar kecil jika user sudah login --}}
-            <a href="">
+            <a href="{{ route('profile') }}">
                 <img class="w-9 cursor-pointer" src="{{ asset('images/user.png') }}" alt="user">
             </a>
         @endauth

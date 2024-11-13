@@ -6,6 +6,10 @@ use App\Http\Controllers\DestinasiController;
 use App\Http\Controllers\PemesanantController;
 use App\Http\Controllers\UserManagementController;
 
+Route::get('/riwayat', function () {
+    return view('pages.riwayat-pembelian');
+})->name('riwayat');
+
 Route::get('/', function () {
     return view('pages.home');
 });
@@ -55,6 +59,3 @@ Route::get('/payment-success', function () {
 // });
 Route::get('/{id_destinasi}', [DestinasiController::class, 'show'])->name('destinasi.show');  // Show a specific destinasi
 
-Route::get('/riwayat', function () {
-    return view('pages.riwayat-pembelian');
-});

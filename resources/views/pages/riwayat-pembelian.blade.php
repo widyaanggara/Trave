@@ -15,7 +15,6 @@
 
     <x-navbar />
 
-
     <section class="w-[90%] max-w-[1200px] mx-auto flex flex-col mb-14 h-full lg:h-screen">
 
         <div class="mt-[140px] grid lg:grid-cols-[3fr_9fr] gap-8">
