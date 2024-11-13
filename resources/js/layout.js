@@ -11,20 +11,19 @@ closeSidebarButton.addEventListener("click", () => {
     sidebar.classList.add("hidden");
 });
 
-// Toggle profile dropdown menu
+// Dropdown
 const profileImage = document.getElementById("profileImage");
 const profileDropdown = document.getElementById("profileDropdown");
 
-profileImage.addEventListener("click", () => {
-    profileDropdown.classList.toggle("hidden");
-});
+    // Toggle profile dropdown menu
+    profileImage.addEventListener("click", (e) => {
+        e.stopPropagation(); // Prevent the document click from triggering immediately
+        profileDropdown.classList.toggle("hidden");
+    });
 
-// Close dropdown when clicking outside
-document.addEventListener("click", (e) => {
-    if (
-        !profileImage.contains(e.target) &&
-        !profileDropdown.contains(e.target)
-    ) {
-        profileDropdown.classList.add("hidden");
-    }
-});
+    // Close dropdown when clicking outside
+    document.addEventListener("click", (e) => {
+        if (!profileImage.contains(e.target) && !profileDropdown.contains(e.target)) {
+            profileDropdown.classList.add("hidden");
+        }
+    });

@@ -96,9 +96,14 @@
           <a class="font-medium text-base py-2" href="">Home</a>
           <a class="font-medium text-base py-2" href="">About</a>
           <a class="font-medium text-base py-2" href="">Tours</a>
-          <a href="" class="mt-auto px-4 py-2 bg-[#191919] text-white rounded-3xl hover:bg-[#3f3f3f] transition-colors duration-200 flex justify-center items-center text-sm">
-              Log Out <span class="material-symbols-outlined ml-2" style="font-size: 1.2rem">logout</span>
-          </a>
+          @auth
+            <form method="POST" action="{{ route('logout') }}" class="mt-auto">
+                @csrf
+                <button type="submit" class="w-full px-4 py-2 bg-[#191919] text-white rounded-3xl hover:bg-[#3f3f3f] transition-colors duration-200 flex justify-center items-center text-sm">
+                    Log Out <span class="material-symbols-outlined ml-2" style="font-size: 1.2rem">logout</span>
+                </button>
+            </form>
+        @endauth
       </div>
   </div>
 </nav>

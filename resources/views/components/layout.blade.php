@@ -66,14 +66,20 @@
                     <button class="text-gray-600">
                         <i class="bi bi-bell"></i>
                     </button>
-                    <div class="relative flex items-center">
-                        <img id="profileImage" class="h-10 w-10 rounded-full cursor-pointer" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="">
-                        <div id="profileDropdown" class="fixed right-4 top-16 w-48 bg-white rounded-md shadow-lg hidden">
+                    <div class="relative flex items-center cursor-pointer" id="profileImage">
+                        <img  class="h-10 w-10 rounded-full cursor-pointer" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="">
+                        <div id="profileDropdown" class="absolute top-8 right-1 mt-2 w-48 bg-white rounded-md border shadow-lg hidden">
                             <a href="/akun" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Account Settings</a>
-                            <a href="#" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Logout</a>
+                            <form method="POST" action="{{ route('logout') }}" class="block">
+                                @csrf
+                                <button type="submit" class="w-full text-left px-4 py-2 text-gray-700 hover:bg-gray-100">
+                                    Log Out
+                                </button>
+                            </form>
                         </div>
                     </div>
                 </div>
+                
             </header>
 
             <!-- Content Area -->
