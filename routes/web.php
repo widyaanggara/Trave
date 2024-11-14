@@ -66,6 +66,11 @@ Route::get('/detail', function () {
 Route::get('/pura', [DestinasiController::class, 'showDestinations']);
 Route::get('/destinasi/{id_destinasi}', [DestinasiController::class, 'showDetail'])->name('destinasi.showDetail');
 
+// profil user
 
 
+// Route::get('/profile', [ProfileController::class, 'show'])->name('profile.show');
+// Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
 
+
+// Route::get('/profile', [ProfileController::class, 'show'])->middleware('auth');

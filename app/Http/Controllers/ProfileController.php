@@ -8,6 +8,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\View\View;
+use Illuminate\Support\Facades\Hash;
+
 
 class ProfileController extends Controller
 {
@@ -22,6 +24,17 @@ class ProfileController extends Controller
          ]);
      }
 
+     
+
+    public function show()
+    {
+        // Mendapatkan data user yang login
+        $user = Auth::user();
+
+        // Mengirim data user ke view
+        return view('pages.account', compact('user'));
+    }
+
     public function edit(Request $request): View
     {
         return view('profile.edit', [
@@ -32,18 +45,37 @@ class ProfileController extends Controller
     /**
      * Update the user's profile information.
      */
-    public function update(ProfileUpdateRequest $request): RedirectResponse
+    public function update(Request $request)
     {
-        $request->user()->fill($request->validated());
-
-        if ($request->user()->isDirty('email')) {
-            $request->user()->email_verified_at = null;
+        $user = Auth::user();
+        
+        dd($user); // Debugging
+    
+        // Validasi input
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'phone' => 'required|string|max:15',
+            'email' => 'required|email|unique:users,email,' . $user->id,
+            'password' => 'nullable|string|min:8',
+        ]);
+    
+        // Update data user
+        $user->name = $request->input('name');
+        $user->phone = $request->input('phone');
+        $user->email = $request->input('email');
+    
+        // Update password jika diisi
+        if ($request->filled('password')) {
+            $user->password = Hash::make($request->input('password'));
         }
-
-        $request->user()->save();
-
-        return Redirect::route('')->with('status', 'profile-updated');
+    
+        // Simpan perubahan
+        $user->save();
+    
+        // Redirect dengan pesan sukses
+        return back()->with('success', 'Profil berhasil diperbarui!');
     }
+    
 
     /**
      * Delete the user's account.
