@@ -16,12 +16,12 @@
 
     <x-navbar />
 
-  
+
 
     <section class="w-[90%] max-w-[1200px] mx-auto flex flex-col">
-        <div class="mt-24 font-bold text-[28px]">Pura Luhur Lempuyang - Gerbang Surga di Atas Awan</div>
+        <div class="mt-24 font-bold text-[28px]">{{ $destination->nama_destinasi }}</div>
         <div class="flex items-center mt-1 gap-1 font-medium text-gray-700 underline">
-            Karangasem, Bali
+            {{ $destination->alamat }}
         </div>
         <div class="mt-3 flex flex-col md:flex-row items-start">
             <div class="flex gap-[3px] justify-start items-center">
@@ -32,7 +32,7 @@
                 <div class="w-[1rem] h-[1rem] bg-[#22c55e] rounded-full"></div>
                 <div class="ml-2 text-base text-gray-600 font-medium underline cursor-pointer">145 reviews</div>
             </div>
-            <div class="flex items-center gap-1 mt-2 md:mt-0"> 
+            <div class="flex items-center gap-1 mt-2 md:mt-0">
                 <span class="material-symbols-outlined text-red-500 md:ml-2  md:mr-1" style="font-variation-settings:'FILL' 1,'wght' 400, 'GRAD' 0, 'opsz' 24">verified</span>Recommended by 96% of travellers
             </div>
         </div>
@@ -41,21 +41,21 @@
         <div class="grid md:grid-cols-[64%_36%] gap-1 mt-8">
             <!-- Left Column (64%) -->
             <div class="object-cover h-full">
-                <img src="{{ asset('images/lemmpuyangg.jpg') }}" alt="" class="h-full w-full rounded-md md:rounded-l-md md:rounded-r-none object-cover">
+                <img src="{{ Storage::url($destination->thumbnail) }}" alt="" class="h-full w-full rounded-md md:rounded-l-md md:rounded-r-none object-cover">
             </div>
-            
+
             <!-- Right Column (36%) with Two Rows -->
             <div class="hidden md:grid grid-rows-2 gap-1 h-full">
                 <div class="h-full">
-                    <img src="{{ asset('images/lemmpuyangg.jpg') }}" alt="" class="w-full h-full md:rounded-l-none md:rounded-tr-md object-cover">
+                    <img src="{{ Storage::url($destination->galeri_1) }}" alt="" class="w-full h-full md:rounded-l-none md:rounded-tr-md object-cover">
                 </div>
                 <div class="h-full">
-                    <img src="{{ asset('images/lemmpuyangg.jpg') }}" alt="" class="w-full h-full md:rounded-l-none md:rounded-br-md object-cover">
+                    <img src="{{ Storage::url($destination->galeri_2) }}" alt="" class="w-full h-full md:rounded-l-none md:rounded-br-md object-cover">
                 </div>
             </div>
-        </div>  
-
+        </div>
     </section>
+
 
 
     <section class="w-[90%] max-w-[1200px] mx-auto mt-10 mb-10">
@@ -162,7 +162,7 @@
                         <div class="bg-white rounded-lg p-6 w-[300px] shadow-lg">
                             <!-- Header Section -->
                             <h2 class="text-center font-semibold text-lg mb-4">Select Travellers</h2>
-                            
+
                             <!-- Adults Section -->
                             <div class="flex justify-between items-center border-b pb-4 mb-4">
                                 <div>
@@ -179,7 +179,7 @@
                                     </button>
                                 </div>
                             </div>
-                            
+
                             <!-- Children Section -->
                             <div class="flex justify-between items-center border-b pb-4 mb-4">
                                 <div>
@@ -196,12 +196,12 @@
                                     </button>
                                 </div>
                             </div>
-                            
+
                             <!-- Update Button -->
                             <button id="update-search" class="w-full bg-orange-500 text-white py-2 rounded-full font-semibold hover:bg-orange-400 transition-colors duration-200">Update search</button>
                         </div>
                     </div>
-                    
+
                 </div>
 
                 {{-- Paket --}}
@@ -214,14 +214,14 @@
                             <div class="font-semibold text-lg">Tour Dengan Guide</div>
                             <div class="bg-black inline-block text-white px-2 py-1 rounded-[4px] mt-1 font-semibold text-sm">Populer*</div>
                             <div class="mt-2">
-                                <div class="text-sm">Menjelajahi Pura Lempuyang</div>
-                                <div class="text-sm">Duration: 2h</div>
+                                <div class="text-sm">{{ $destination->nama_destinasi }}</div>
+                                <div class="text-sm">Duration: {{ $destination->duration }}</div>
                                 <div class="text-sm">Travel Guide</div>
-                                <div class="text-sm">Location: Karangasem, Bali</div>
+                                <div class="text-sm">Location: {{ $destination->alamat }}</div>
                             </div>
                             <div class="mt-3">
-                                <div class="text-sm"><span>1</span> Dewasa x IDR <span>150.000</span></div>
-                                <div class="text-sm"><span>1</span> Anak-anak x IDR <span>150.000</span></div>
+                                <div class="text-sm"><span>1</span> Dewasa x IDR <span>{{ number_format($destination->harga_dewasa_paket, 0, ',', '.') }}</span></div>
+                                <div class="text-sm"><span>1</span> Anak-anak x IDR <span>{{ number_format($destination->harga_anak_paket, 0, ',', '.') }}</span></div>
                                 <div class="text-base font-semibold">Total IDR <span>300.000</span></div>
                             </div>
                             <div class="mt-2">
@@ -235,20 +235,20 @@
                             <span class="bg-black rounded-full" id="inner-dot-1" style="visibility: hidden;"></span>
                         </span>
                     </div>
-                
+
                     {{-- pilihan 2 --}}
                     <div class="mt-3 relative border-2 rounded-xl border-gray-300 transition duration-300 ease-in-out" id="package-card-2">
                         <input type="radio" name="packages" value="withoutguide" id="withguide" class="hidden peer" />
                         <label for="withoutguide" class="w-full block cursor-pointer p-4">
                             <div class="font-semibold text-lg">Tour Tanpa Guide</div>
                             <div class="mt-1">
-                                <div class="text-sm">Menjelajahi Pura Lempuyang</div>
-                                <div class="text-sm">Duration: 2h</div>
-                                <div class="text-sm">Location: Karangasem, Bali</div>
+                                <div class="text-sm">{{ $destination->nama_destinasi }}</div>
+                                <div class="text-sm">Duration: {{ $destination->duration }}</div>
+                                <div class="text-sm">Location: {{ $destination->alamat }}</div>
                             </div>
                             <div class="mt-3">
-                                <div class="text-sm"><span>1</span> Dewasa x IDR <span>100.000</span></div>
-                                <div class="text-sm"><span>1</span> Anak-anak x IDR <span>100.000</span></div>
+                                <div class="text-sm"><span>1</span> Dewasa x IDR <span>{{ number_format($destination->harga_dewasa_nonpaket, 0, ',', '.') }}</span></div>
+                                <div class="text-sm"><span>1</span> Anak-anak x IDR <span>{{ number_format($destination->harga_anak_nonpaket, 0, ',', '.') }}</span></div>
                                 <div class="text-base font-semibold">Total IDR <span>200.000</span></div>
                             </div>
                             <div class="mt-2">
@@ -262,7 +262,7 @@
                         </span>
                     </div>
                 </div>
-                
+
                 <div class="bg-orange-500 hover:bg-orange-400 flex justify-center items-center py-3 mt-4 rounded-full cursor-pointer text-white transition-colors duration-200">Booking Now</div>
 
             </div>
@@ -278,7 +278,7 @@
             <div class="swiper recently-viewed-slider overflow-hidden">
                 <div class="swiper-wrapper">
                     <div class="swiper-slide rounded relative cursor-pointer group overflow-hidden">
-                        <div class="overflow-hidden rounded"> 
+                        <div class="overflow-hidden rounded">
                             <img src="{{ asset('images/white-river-rafting-bali.jpg') }}" alt="Background Image" class="w-full h-full object-cover transition-transform duration-300 transform group-hover:scale-105">
                         </div>
                         <div class="">
@@ -295,7 +295,7 @@
                             </div>
                         </div>
                     </div>
-    
+
                     <div class="swiper-slide rounded relative cursor-pointer group overflow-hidden">
                         <div class="overflow-hidden rounded"> <!-- Add overflow-hidden here -->
                             <img src="{{ asset('images/penglipuran.jpg') }}" alt="Background Image" class="w-full h-full object-cover transition-transform duration-300 transform group-hover:scale-105">
@@ -321,7 +321,7 @@
                         </div>
                         <div class="">
                             <div class="pt-1 pb-2 text-black text-[1.2rem] lg:text-lg font-bold rounded">
-                                Petualangan ATV di Ubud - Eksplorasi Alam Bali 
+                                Petualangan ATV di Ubud - Eksplorasi Alam Bali
                             </div>
                             <div class="flex gap-[2px] justify-start items-center">
                                 <div class="w-[0.8rem] h-[0.8rem] bg-[#22c55e] rounded-full"></div>
@@ -447,7 +447,7 @@
                             </div>
                         </div>
                     </div>
-    
+
                 </div>
             </div>
 

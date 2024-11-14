@@ -22,14 +22,24 @@ class DestinasiController extends Controller
         // Mengirim data destinasi ke view
         return view('admin.destinasi', compact('destinasi'));
     }
-    // public function showKategoriDestination()
-    // {
-    //     // Mengambil semua data destinasi dari database
-    //     $destinasi = Destinasi::all();
+    public function showDestinations()
+    {
+        // Fetch destinations from the database
+        $destinasi = Destinasi::all(); // or any query to get the data
 
-    //     // Mengirim data destinasi ke view
-    //     return view('admin.destinasi', compact('destinasi'));
-    // }
+        // Pass the destinations to the view
+        return view('pages.kategori-destination', compact('destinasi'));
+    }
+    public function showDetail($id_destinasi)
+    {
+        // Fetch destinasi berdasarkan ID
+        $destination = Destinasi::findOrFail($id_destinasi);
+
+        // Pass destinasi ke view
+        return view('pages.detail', compact('destination'));
+    }
+
+
 
 
     /**
@@ -113,9 +123,6 @@ public function show($id_destinasi)
 }
 
 
-
-
-
     /**
      * Show the form for editing the specified resource.
      */
@@ -123,7 +130,7 @@ public function show($id_destinasi)
     {
         // Ambil data destinasi berdasarkan id_destinasi
         $destinasi = Destinasi::findOrFail($id_destinasi);
-    
+
         // Kirim data ke view edit
         return view('admin.edit-destinasi', compact('destination'));
     }
@@ -217,7 +224,7 @@ public function update(Request $request, $id_destinasi)
         if ($destination->galeri_3) {
             Storage::disk('public')->delete($destination->galeri_3);
         }
-        
+
 
         // Hapus data destinasi dari database
         $destination->delete();

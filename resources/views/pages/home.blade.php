@@ -75,7 +75,7 @@
                                 </svg>
                                 Find Destination
                             </div>
-                        </a>  
+                        </a>
                     </div>
                 </div>
             </div>
@@ -135,7 +135,7 @@
                                 Snorkeling
                             </div>
                         </div>
-                    </a>                  
+                    </a>
                 </div>
             </div>
             <div class="swiper-prev shadow-lg absolute top-1/2 -left-5 -translate-y-1/2 z-10 w-10 h-10 bg-white text-black flex justify-center items-center rounded-full cursor-pointer">
@@ -156,7 +156,7 @@
                 <div class="swiper-wrapper">
 
                     <a href="" class="swiper-slide rounded relative cursor-pointer group overflow-hidden">
-                        <div class="overflow-hidden rounded"> 
+                        <div class="overflow-hidden rounded">
                             <img src="{{ asset('images/white-river-rafting-bali.jpg') }}" alt="Background Image" class="w-full h-full object-cover transition-transform duration-300 transform group-hover:scale-105">
                         </div>
                         <div class="">
@@ -173,7 +173,7 @@
                             </div>
                         </div>
                     </a>
-    
+
                     <a href="" class="swiper-slide rounded relative cursor-pointer group overflow-hidden">
                         <div class="overflow-hidden rounded"> <!-- Add overflow-hidden here -->
                             <img src="{{ asset('images/penglipuran.jpg') }}" alt="Background Image" class="w-full h-full object-cover transition-transform duration-300 transform group-hover:scale-105">
@@ -199,7 +199,7 @@
                         </div>
                         <div class="">
                             <div class="pt-1 pb-2 text-black text-[1.2rem] lg:text-lg font-bold rounded">
-                                Petualangan ATV di Ubud - Eksplorasi Alam Bali 
+                                Petualangan ATV di Ubud - Eksplorasi Alam Bali
                             </div>
                             <div class="flex gap-[2px] justify-start items-center">
                                 <div class="w-[0.8rem] h-[0.8rem] bg-[#22c55e] rounded-full"></div>
@@ -230,7 +230,7 @@
                             </div>
                         </div>
                     </a>
-    
+
                 </div>
             </div>
         </div>
@@ -242,7 +242,7 @@
                 <div class="px-0 lg:px-10 mr-4 lg:mr-0">
                     <img src="{{ asset('images/lempuyang.jpg') }}" alt="" class="h-full md:h-52 object-cover w-36 lg:w-36 lg:h-36 lg:-rotate-12 rounded-md">
                 </div>
-                <div class="flex flex-col lg:flex-row justify-center lg:justify-between items-start lg:items-center w-full py-2 pr-2"> 
+                <div class="flex flex-col lg:flex-row justify-center lg:justify-between items-start lg:items-center w-full py-2 pr-2">
                     <div class="text-left">
                         <div class="font-bold text-xl">Pura Lempuyang: Keajaiban Spiritual di Puncak Bali</div>
                         <div class="mt-0 lg:mt-4">Jelajahi keindahan dan kekayaan budaya Bali di tengah alam yang menakjubkan.</div>
@@ -252,7 +252,7 @@
             </div>
         </section>
     </a>
-   
+
     {{-- Top Destination Section --}}
     <section class="w-[90%] max-w-[1200px] mx-auto mt-24 mb-10">
         <div class="font-bold text-2xl lg:text-3xl">Top destinations for your next vacation</div>
@@ -322,8 +322,8 @@
                                 Desa Munduk
                             </div>
                         </div>
-                    </a>   
-                    
+                    </a>
+
                     <a href="" class="swiper-slide rounded relative shadow-lg cursor-pointer group overflow-hidden">
                         <img src="{{ asset('images/sekumpul.png') }}" alt="Background Image" class="w-full h-full object-cover rounded transition-transform duration-300 transform group-hover:scale-105">
                         <div class="absolute w-full bottom-0">
@@ -331,7 +331,7 @@
                                 Sekumpul Waterfall
                             </div>
                         </div>
-                    </a>  
+                    </a>
 
                     <a href="" class="swiper-slide rounded relative shadow-lg cursor-pointer group overflow-hidden">
                         <img src="{{ asset('images/baturrr.jpg') }}" alt="Background Image" class="w-full h-full object-cover rounded transition-transform duration-300 transform group-hover:scale-105">
@@ -340,7 +340,7 @@
                                 Gunung Batur
                             </div>
                         </div>
-                    </a> 
+                    </a>
 
                     <a href="" class="swiper-slide rounded relative shadow-lg cursor-pointer group overflow-hidden">
                         <img src="{{ asset('images/jatiluwih.jpg') }}" alt="Background Image" class="w-full h-full object-cover rounded transition-transform duration-300 transform group-hover:scale-105">
@@ -349,7 +349,7 @@
                                 Jatiluwih
                             </div>
                         </div>
-                    </a> 
+                    </a>
                 </div>
             </div>
             <div class="swiper-prevs shadow-lg absolute top-1/2 -left-5 -translate-y-1/2 z-10 w-10 h-10 bg-white text-black flex justify-center items-center rounded-full cursor-pointer">
@@ -368,42 +368,42 @@
             <div class="flex items-center gap-2 text-lg font-medium text-primary mb-2">
                 <span>Your Adventure Starts Here</span>
             </div>
-            
+
             <!-- Main Heading -->
             <h1 class="text-3xl md:text-4xl font-bold">Book Your Tour Dates Now</h1>
-            
+
             <!-- Integrated Search Bar -->
             <div class="mt-8 bg-white/60 backdrop-blur-md flex flex-col md:flex-row justify-center items-center gap-6 p-6 md:p-4 md:px-8 w-full md:w-max rounded-2xl md:rounded-full shadow-lg">
                 <!-- Location Input Group -->
                 <div class="flex items-center md:flex-row  gap-3 w-full md:w-auto">
                     <span class="material-symbols-outlined text-green-500">
                         location_on
-                    </span>                    
+                    </span>
                     <div class="flex flex-col w-full">
                         <h5 class="text-gray-800 text-lg font-semibold text-left">Location</h5>
                         <input type="text" placeholder="Where are you going?" class="bg-transparent border-none text-gray-600 text-sm placeholder-gray-400 focus:outline-none w-full">
                     </div>
                 </div>
-            
+
                 <!-- Date Input Group -->
                 <div class="flex md:flex-row items-center gap-3 w-full md:w-auto">
                     <span class="material-symbols-outlined text-green-500">
                         calendar_today
-                    </span>                   
+                    </span>
                     <div class="flex flex-col w-full">
                         <h5 class="text-gray-800 text-lg font-semibold text-left">Select Date</h5>
                         <input type="date" placeholder="hh/bb/tttt" class="bg-transparent border-none text-gray-600 text-sm placeholder-gray-400 focus:outline-none w-full">
                     </div>
                 </div>
-            
+
                 <!-- Get Started Button -->
                 <a href="" class="bg-green-500 text-black px-6 py-4 rounded-xl md:rounded-full w-full md:w-auto flex justify-center items-center font-semibold text-sm transition ease-in-out duration-300 hover:bg-green-400">Get Started</a>
             </div>
-            
-            
+
+
         </div>
     </section>
-    
+
     <x-footer />
 
 

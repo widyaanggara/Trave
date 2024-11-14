@@ -42,13 +42,15 @@ Route::prefix('destinasi')->group(function () {
     Route::put('/{id_destinasi}', [DestinasiController::class, 'update'])->name('destinasi.update');// Update a destinasi
     Route::delete('/{id_destinasi}', [DestinasiController::class, 'destroy'])->name('destinasi.destroy'); // Delete a destinasi
     Route::get('/{id_destinasi}', [DestinasiController::class, 'show'])->name('destinasi.show');  // Show a specific destinasi
+    // Route::get('/kategori-destination', [DestinasiController::class, 'showKategoriDestination'])->name('destinasi.showKategoriDestination');
+
 });
 
 require __DIR__.'/auth.php';
 
-// Route::get('/pura', function () {
-//     return view('pages.kategori-destination');
-// });
+Route::get('/pura', function () {
+    return view('pages.kategori-destination');
+});
 
 Route::get('/payment', function () {
     return view('pages.payment');
@@ -61,5 +63,9 @@ Route::get('/payment-success', function () {
 Route::get('/detail', function () {
     return view('pages.detail');
 });
+Route::get('/pura', [DestinasiController::class, 'showDestinations']);
+Route::get('/destinasi/{id_destinasi}', [DestinasiController::class, 'showDetail'])->name('destinasi.showDetail');
+
+
 
 
