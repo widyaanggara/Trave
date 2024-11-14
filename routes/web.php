@@ -66,6 +66,8 @@ Route::get('/detail', function () {
 Route::get('/pura', [DestinasiController::class, 'showDestinations']);
 Route::get('/destinasi/{id_destinasi}', [DestinasiController::class, 'showDetail'])->name('destinasi.showDetail');
 
+Route::post('/profile', [ProfileController::class, 'update'])->name('account.update');
+
 // profil user
 
 

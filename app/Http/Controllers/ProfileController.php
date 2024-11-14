@@ -24,7 +24,7 @@ class ProfileController extends Controller
          ]);
      }
 
-     
+
 
     public function show()
     {
@@ -45,37 +45,39 @@ class ProfileController extends Controller
     /**
      * Update the user's profile information.
      */
-    public function update(Request $request)
-    {
-        $user = Auth::user();
-        
-        dd($user); // Debugging
-    
-        // Validasi input
-        $request->validate([
-            'name' => 'required|string|max:255',
-            'phone' => 'required|string|max:15',
-            'email' => 'required|email|unique:users,email,' . $user->id,
-            'password' => 'nullable|string|min:8',
-        ]);
-    
-        // Update data user
-        $user->name = $request->input('name');
-        $user->phone = $request->input('phone');
-        $user->email = $request->input('email');
-    
-        // Update password jika diisi
-        if ($request->filled('password')) {
-            $user->password = Hash::make($request->input('password'));
-        }
-    
-        // Simpan perubahan
-        $user->save();
-    
-        // Redirect dengan pesan sukses
-        return back()->with('success', 'Profil berhasil diperbarui!');
+
+     public function update(Request $request)
+{
+    // Logika update profile
+    /** @var User $user */
+    $user = Auth::user();
+
+    // Validasi input
+    $request->validate([
+        'name' => 'required|string|max:255',
+        'phone' => 'required|string|max:15',
+        'email' => 'required|email|unique:users,email,' . $user->id,
+        'password' => 'nullable|string|min:8',
+    ]);
+
+    // Update data user
+    $user->name = $request->input('name');
+    $user->phone = $request->input('phone');
+    $user->email = $request->input('email');
+
+    // Update password jika diisi
+    if ($request->filled('password')) {
+        $user->password = Hash::make($request->input('password'));
     }
-    
+
+    // Simpan perubahan
+    $user->save();
+
+    return back()->with('success', 'Profil berhasil diperbarui!');
+}
+
+
+
 
     /**
      * Delete the user's account.

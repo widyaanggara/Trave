@@ -19,7 +19,7 @@
     <section class="w-[90%] max-w-[1200px] mx-auto flex flex-col mb-14 h-full lg:h-screen">
 
         <div class="mt-[140px] grid lg:grid-cols-[3fr_9fr] gap-8">
-            
+
             {{-- Navigation --}}
             <x-account-admin-navigation />
 
@@ -28,36 +28,41 @@
                 <div class="font-bold text-3xl text-center mb-1 mt-10 lg:mt-0">Welcome, Admin</div>
                 <div class="text-gray-600 mb-10 text-center">Informasi mengenai profil dan preferensi kamu di seluruh layanan myskill.</div>
                 <div class="flex flex-col gap-5">
-                    <div>
-                        <label class="block text-gray-600 text-sm font-medium mb-1">Username</label>
-                        <input type="text" value="admin123" class="w-full mt-1 px-3 py-2 bg-gray-100 border border-gray-300 rounded-md">
-                    </div>
-                    {{-- Nomor Hp --}}
-                    <div>
-                        <label class="block text-gray-600 text-sm font-medium">Nomor HP</label>
-                        <input type="tel" value="+6281234567890" class="w-full mt-1 px-3 py-2 bg-gray-100 border border-gray-300 rounded-md">
-                    </div>
+                    <form action="{{ route('profile.update') }}" method="POST">
+                        @csrf
 
-                    <div class="lg:grid grid-cols-[6fr_6fr] gap-6">
+                        {{-- Username --}}
+                        <div>
+                            <label class="block text-gray-600 text-sm font-medium mb-1">Username</label>
+                            <input type="text" name="name" value="{{ old('name', $user->name) }}" class="w-full mt-1 px-3 py-2 bg-gray-100 border border-gray-300 rounded-md">
+                        </div>
+
+                        {{-- Nomor HP --}}
+                        <div>
+                            <label class="block text-gray-600 text-sm font-medium">Nomor HP</label>
+                            <input type="tel" name="phone" value="{{ old('phone', $user->phone) }}" class="w-full mt-1 px-3 py-2 bg-gray-100 border border-gray-300 rounded-md">
+                        </div>
+
                         {{-- Email --}}
                         <div>
                             <label class="block text-gray-600 text-sm font-medium">Email</label>
-                            <input type="email" value="admin@example.com" class="w-full mt-1 px-3 py-2 bg-gray-100 border border-gray-300 rounded-md">
+                            <input type="email" name="email" value="{{ old('email', $user->email) }}" class="w-full mt-1 px-3 py-2 bg-gray-100 border border-gray-300 rounded-md">
                         </div>
+
                         {{-- Password --}}
                         <div>
                             <label class="block text-gray-600 text-sm font-medium">Password</label>
-                            <input type="password" value="password123" class="w-full mt-1 px-3 py-2 bg-gray-100 border border-gray-300 rounded-md">
+                            <input type="password" name="password" class="w-full mt-1 px-3 py-2 bg-gray-100 border border-gray-300 rounded-md">
+                            <small class="text-gray-500">Kosongkan jika tidak ingin mengubah password.</small>
                         </div>
-                    </div>
 
-                    {{-- Tombol Edit --}}
-                    <div class="mt-4 sm:mt-6 flex sm:justify-end">
-                        <button class="w-full sm:w-auto px-4 py-3 bg-green-500 text-white rounded-md hover:bg-green-600 transition">
-                            Simpan Perubahan
-                        </button>
-                    </div>
-                    
+                        {{-- Tombol Simpan --}}
+                        <div class="mt-4 sm:mt-6 flex sm:justify-end">
+                            <button class="w-full sm:w-auto px-4 py-3 bg-green-500 text-white rounded-md hover:bg-green-600 transition">
+                                Simpan Perubahan
+                            </button>
+                        </div>
+                    </form>
 
                 </div>
             </div>
