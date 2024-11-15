@@ -1,6 +1,6 @@
 <nav class='w-full h-20 flex flex-col justify-center items-center fixed bg-[#ffffff] z-50'>
   <div class='w-[90%] max-w-[1200px] flex justify-between items-center'>
-      <div class='flex items-center justify-center gap-2'>
+      <div class='flex items-center justify-center gap-3'>
           <!-- Hamburger -->
           <div id="hamburger" class='lg:hidden flex flex-col cursor-pointer gap-1 md:mt-1'>
               <svg xmlns="http://www.w3.org/2000/svg" height="30px" viewBox="0 -960 960 960" width="30px" fill="#000000">
@@ -9,10 +9,10 @@
           </div>
 
           <!-- Logo KOLAB -->
-          <div class='hidden md:block'>
+          <div class=''>
               <a class='navbar-link' href="#">
                   <div class='flex justify-start items-center'>
-                      <div class='font-bold text-2xl md:text-4xl text-[#22c55e]'>
+                      <div class='font-bold text-3xl md:text-4xl text-[#22c55e] mb-[3px]'>
                           Trave
                       </div>
                   </div>
@@ -20,7 +20,7 @@
           </div>
       </div>
 
-      <div class='mx-auto md:hidden'>
+      {{-- <div class='md:hidden'>
           <a class='navbar-link' href="#">
               <div class='flex justify-start items-center'>
                   <div class='font-bold text-2xl md:text-4xl text-[#22c55e]'>
@@ -28,7 +28,7 @@
                   </div>
               </div>
           </a>
-      </div>
+      </div> --}}
 
       <!-- Link navigasi -->
       <div class='hidden lg:flex h-full'>

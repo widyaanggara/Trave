@@ -16,7 +16,7 @@
         <form method="POST" action="{{ route('register') }}">
             @csrf
     
-            <section class="w-full h-full md:h-screen flex items-center justify-center mt-14 md:mt-0 mb-10 md:mb-0">
+            <section class="w-full h-full flex items-center justify-center mt-14 md:mt-24 mb-20">
                 <div class="bg-white p-4 sm:p-8 border rounded-lg shadow-md md:w-full w-[90%] max-w-[500px]">
                     <h1 class="text-2xl font-bold text-center mb-6">Register</h1>
                     <!-- Name -->
