@@ -69,7 +69,7 @@
                     </div>
                 </div>
                 {{-- About --}}
-                <div class="my-8">Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga natus ratione vero fugit! Atque repellat sit animi incidunt sunt maxime inventore eaque, nisi explicabo magni necessitatibus. Illo quia corrupti culpa. Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia, rerum harum debitis officiis alias non a fuga ipsa, nesciunt mollitia provident voluptatibus laudantium unde veniam odit, quis excepturi sequi animi?</div>
+                <div class="my-8">{{ $destination->description }}</div>
                 <div class="h-[1px] bg-gray-300"></div>
                 <div class="my-8 flex flex-col gap-[8px]">
                     <div class="flex items-center text-base">
@@ -144,7 +144,7 @@
 
 
             <div class="order-1 lg:order-2 lg:sticky top-20 self-start border p-4 rounded-lg shadow-lg">
-                <div class="font-bold text-2xl">From IDR 200.000</div>
+                <div class="font-bold text-2xl">From IDR {{ number_format($destination->harga_dewasa_nonpaket, 0, ',', '.') }}</div>
                 <div class="text-gray-800">Per adult (price varies by group size)</div>
                 <div class="mt-4 font-semibold text-base">Select date and travellers</div>
                 <div class="flex items-center gap-2 mt-3">

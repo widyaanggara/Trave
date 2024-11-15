@@ -13,7 +13,7 @@ accordionHeaders.forEach(accordionHeader => {
             icon.textContent = "keyboard_arrow_up"; // Change icon to "up"
         } else {
             accordionBody.style.maxHeight = 0;
-            icon.textContent = "keyboard_arrow_down"; 
+            icon.textContent = "keyboard_arrow_down";
         }
     });
 });
@@ -64,8 +64,8 @@ cards.forEach((card, index) => {
         radioButtons[index].checked = true;
 
         cards.forEach((c, i) => {
-            c.classList.replace('border-gray-800', 'border-gray-300'); 
-            dots[i].style.visibility = 'hidden'; 
+            c.classList.replace('border-gray-800', 'border-gray-300');
+            dots[i].style.visibility = 'hidden';
         });
 
         card.classList.replace('border-gray-300', 'border-gray-800');
@@ -90,7 +90,7 @@ const recentlyViewedSwiper = new Swiper('.recently-viewed-slider', {
     },
     breakpoints: {
         476: {
-            slidesPerView: 1.5, 
+            slidesPerView: 1.5,
             spaceBetween: 12,
         },
         640:{
