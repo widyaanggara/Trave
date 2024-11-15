@@ -37,7 +37,7 @@ class DestinasiController extends Controller
         $destinasi = Destinasi::all(); // or any query to get the data
 
         // Pass the destinations to the view
-        return view('pages.kategori-destination', compact('destinasi'));
+        return view('pages.kategori-pura', compact('destinasi'));
     }
     public function showDetail($id_destinasi)
     {

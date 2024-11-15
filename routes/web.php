@@ -48,9 +48,9 @@ Route::prefix('destinasi')->group(function () {
 
 require __DIR__.'/auth.php';
 
-Route::get('/pura', function () {
-    return view('pages.kategori-destination');
-});
+// Route::get('/kategori-pura', function () {
+//     return view('pages.kategori-destination');
+// });
 
 Route::get('/payment', function () {
     return view('pages.payment');
@@ -63,8 +63,8 @@ Route::get('/payment-success', function () {
 Route::get('/detail', function () {
     return view('pages.detail');
 });
-Route::get('/pura', [DestinasiController::class, 'showDestinations']);
-Route::get('/pura/{id_destinasi}', [DestinasiController::class, 'showDetail'])->name('destinasi.showDetail');
+Route::get('/kategori-pura', [DestinasiController::class, 'showDestinations']);
+Route::get('/kategori-pura/{id_destinasi}', [DestinasiController::class, 'showDetail'])->name('destinasi.showDetail');
 
 Route::post('/profile', [ProfileController::class, 'update'])->name('account.update');
 

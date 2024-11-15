@@ -101,7 +101,7 @@
                         </div>
                     </a>
 
-                    <a href="/pura" class="swiper-slide rounded relative shadow-lg cursor-pointer group overflow-hidden">
+                    <a href="/kategori-pura" class="swiper-slide rounded relative shadow-lg cursor-pointer group overflow-hidden">
                         <img src="{{ asset('images/pura-lempuyang.jpg') }}" alt="Background Image" class="w-full h-full object-cover rounded transition-transform duration-300 transform group-hover:scale-105">
                         <div class="absolute w-full bottom-0">
                             <div class="bg-gradient-to-t from-[#000000c0] to-transparent px-5 pt-20 pb-5 text-white text-2xl font-bold rounded">
