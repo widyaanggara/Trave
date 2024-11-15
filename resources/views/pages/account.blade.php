@@ -31,7 +31,7 @@
                 </div>
                 @endif
             <div>
-                <div class="font-bold text-3xl text-center mb-1 mt-10 lg:mt-0">Welcome, {{ $user->name }}</div>
+                <div class="font-bold text-3xl text-center mb-1 mt-10 lg:mt-0">👋 Welcome, {{ $user->name }}</div>
                 <div class="text-gray-600 mb-10 text-center">Informasi mengenai profil dan preferensi kamu di seluruh layanan rave.</div>
                 <div class="flex flex-col gap-5">
                     <form action="{{ route('profile.update') }}" method="POST">
