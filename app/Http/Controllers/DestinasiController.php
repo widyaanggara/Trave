@@ -22,6 +22,15 @@ class DestinasiController extends Controller
         // Mengirim data destinasi ke view
         return view('admin.destinasi', compact('destinasi'));
     }
+    public function show($id_destinasi)
+{
+    // Ambil data destinasi berdasarkan id_destinasi
+    $destination = Destinasi::findOrFail($id_destinasi);
+
+    // Tampilkan halaman detail dengan data destinasi
+    return view('admin.detail-destinasi', compact('destination'));
+}
+
     public function showDestinations()
     {
         // Fetch destinations from the database
@@ -113,14 +122,6 @@ class DestinasiController extends Controller
     // Fungsi untuk menampilkan halaman detail destinasi
 // DestinasiController.php
 
-public function show($id_destinasi)
-{
-    // Ambil data destinasi berdasarkan id_destinasi
-    $destination = Destinasi::findOrFail($id_destinasi);
-
-    // Tampilkan halaman detail dengan data destinasi
-    return view('admin.detail-destinasi', compact('destination'));
-}
 
 
     /**
