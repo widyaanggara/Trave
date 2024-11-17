@@ -179,6 +179,7 @@
         </div>
     </section>
 
+    {{-- Banner --}}
     <a href="/detail">
         <section class="w-[90%] max-w-[1200px] mx-auto mt-24 mb-10 bg-[#f2ecf9] rounded-md cursor-pointer">
             <div class="flex lg:py-6 lg:px-4">
