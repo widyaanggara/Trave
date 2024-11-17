@@ -54,6 +54,22 @@ class DestinasiController extends Controller
         return view('pages.detail', compact('destinasi'));
     }
 
+    public function showSearch(Request $request)
+    {
+        $search = $request->input('search'); // Get the search input
+    
+        // If there is a search query, filter the destinations
+        if ($search) {
+            $destinasi = Destinasi::where('nama_destinasi', 'like', '%' . $search . '%')->get();
+        } else {
+            // If no search query, get all destinations
+            $destinasi = Destinasi::all();
+        }
+    
+        return view('pages.home', compact('destinasi', 'search')); // Pass the data to the view along with the search query
+    }
+
+
 
 
 
