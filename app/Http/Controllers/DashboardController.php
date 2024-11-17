@@ -16,7 +16,7 @@ class DashboardController extends Controller
 
         // Ambil jumlah pemesanan per bulan untuk tahun ini
         $ordersPerMonth = Pemesanan::selectRaw('MONTH(date_order) as month, COUNT(*) as count')
-            ->whereYear('date_order', Carbon::now()->year) // Ambil data untuk tahun ini
+            ->whereYear('date_order', Carbon::now()->year)
             ->groupBy('month')
             ->orderBy('month')
             ->get();

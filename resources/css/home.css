@@ -38,6 +38,22 @@
     width: calc(50% - 6px); /* Atur lebar slide hanya untuk Recently Viewed */
 }
 
+/* COBA  */
+#searchModal {
+    display: none; /* Modal tersembunyi secara default */
+    position: absolute;
+    top: 100%; /* Posisikan modal di bawah input */
+    left: 0;
+    width: 100%; /* Modal lebar sesuai dengan input */
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    margin-top: 5px; /* Sedikit jarak antara input dan modal */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 10; /* Pastikan modal di atas elemen lainnya */
+}
+
+
 
 @media screen and (max-width:768px){
     .banner{

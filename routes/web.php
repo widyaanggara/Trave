@@ -128,6 +128,9 @@ Route::get('/detail/{id_destinasi}', [DestinasiController::class, 'showDetail'])
 // Simpan data pemesanan dari detail
 Route::post('/pemesanan/store', [PemesanantController::class, 'store'])->name('pemesanant.store');
 
+
+Route::get('/search', [DestinasiController::class, 'showSearch'])->name('destinasi.search');
+
 // End percobaan
 
 

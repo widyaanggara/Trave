@@ -20,7 +20,7 @@
         <div class="mt-20 hidden md:block">
             <h1 id="title-text" class="text-4xl md:text-5xl font-bold mt-12 text-center">Ingin ke mana?</h1>
         </div>
-        <div class="option-btn mt-20 md:mt-8 mb-5 overflow-x-auto max-w-[54rem] w-full flex gap-2 justify-start lg:justify-center">
+        {{-- <div class="option-btn mt-20 md:mt-8 mb-5 overflow-x-auto max-w-[54rem] w-full flex gap-2 justify-start lg:justify-center">
             <button class="option flex-shrink-0 flex justify-center items-center py-1 mx-2 text-black border-b-2 border-transparent font-semibold text-lg hover:border-black transition-colors duration-200 active">
                 <img src="{{ asset('images/allsearch.png') }}" class="w-8" alt="">
                 <p class="ml-[5px]">Search All</p>
@@ -45,19 +45,37 @@
                 <img src="{{ asset('images/bahari.png') }}" class="w-8" alt="">
                 <p class="ml-[5px]">Wisata Bahari</p>
             </button>
-        </div>
+        </div> --}}
 
-        <div class="flex flex-col border md:flex-row justify-center items-center max-w-[50rem] w-full shadow-md bg-white py-1 pb-5 md:pb-0 px-4 pl-6 rounded-xl md:rounded-full">
-            <div class="flex items-center w-full mb-2 md:mb-1">
+        <div class="flex flex-col border md:flex-row justify-center items-center max-w-[50rem] w-full shadow-md bg-white py-1 pb-5 md:pb-0 px-4 mt-10 pl-6 rounded-xl md:rounded-full">
+            <div class="flex items-center w-full mb-2 md:mb-1 relative">
                 <span class="material-symbols-outlined left-3 cursor-pointer">search</span>
-                <input type="text" class="w-full p-4 bg-transparent rounded-full focus:outline-none " placeholder="Temukan objek wisata anda...">
+                
+                <!-- Formulir untuk pencarian -->
+                <form method="GET" action="{{ route('destinasi.search') }}" class="flex w-full items-center">
+                    <!-- Search input -->
+                    <input id="searchInput" type="text" name="search" value="{{ request('search') }}" class="w-full p-4 bg-transparent rounded-full focus:outline-none" placeholder="Temukan objek wisata anda..." onfocus="showModal()" onblur="hideModal()">
+                    
+                    <!-- Tombol submit, align to the right -->
+                    <button type="submit" class="bg-green-500 hover:bg-green-400 text-black font-semibold md:w-28 py-3 md:ml-3 rounded-full">
+                        Search
+                    </button>
+                </form>
+                
+                <!-- Modal untuk input search -->
+                <div id="searchModal" class="absolute top-full left-0 w-full bg-white border border-gray-300 rounded-lg mt-1 shadow-lg hidden px-4 py-3">
+                    @foreach($destinasi as $destination)
+                        <div class="destination-item" data-destination="{{ $destination->nama_destinasi }}">
+                            <a href="{{ route('destinasi.showDetail', $destination->id_destinasi) }}" class="swiper-slide rounded relative cursor-pointer group overflow-hidden">
+                                {{ $destination->nama_destinasi }}
+                            </a>
+                        </div>
+                    @endforeach
+                </div>
             </div>
-            <button button class="bg-green-500 hover:bg-green-400 text-black font-semibold md:w-28 py-3 md:mb-1 rounded-full w-full">
-                Search
-            </button>
+            
         </div>
 
-        
     </section>
 
     {{-- Banner section --}}
@@ -181,7 +199,7 @@
     </section>
 
     {{-- Banner --}}
-    <a href="/detail">
+    <a href="/detail/1">
         <section class="w-[90%] max-w-[1200px] mx-auto mt-24 mb-10 bg-[#f2ecf9] rounded-md cursor-pointer">
             <div class="flex lg:py-6 lg:px-4">
                 <div class="px-0 lg:px-10 mr-4 lg:mr-0">
@@ -207,7 +225,7 @@
             <div class="swiper explore-next-slider overflow-hidden">
                 <div class="swiper-wrapper">
                     @foreach($destinasi as $destination)
-                    <a href="/detail" class="swiper-slide rounded relative shadow-lg cursor-pointer group overflow-hidden">
+                    <a href="{{ route('destinasi.showDetail', $destination->id_destinasi) }}" class="swiper-slide rounded relative shadow-lg cursor-pointer group overflow-hidden">
                         <img src="{{ $destination->thumbnail ? Storage::url($destination->thumbnail)  : 'https://via.placeholder.com/400' }}" alt="{{ $destination->nama_destinasi }}" class="w-full h-full object-cover rounded transition-transform duration-300 transform group-hover:scale-105">
                         <div class="absolute w-full bottom-0">
                             <div class="bg-gradient-to-t from-[#000000c0] to-transparent px-5 pt-20 pb-5 text-white text-2xl font-bold rounded">
@@ -272,6 +290,28 @@
 
     <x-footer />
 
+
+
+    <script>
+        const searchInput = document.getElementById('searchInput');
+        const searchModal = document.getElementById('searchModal');
+    
+        // Function to show the modal
+        function showModal() {
+            searchModal.style.display = 'block';  // Show modal
+        }
+    
+        // Function to hide the modal
+        function hideModal() {
+            setTimeout(() => {
+                searchModal.style.display = 'none';  // Hide modal after slight delay
+            }, 150);  // Slight delay to make sure the modal can be seen before disappearing
+        }
+    
+        // Attach event listeners to input for focus and blur
+        searchInput.addEventListener('focus', showModal);
+        searchInput.addEventListener('blur', hideModal);
+    </script>
 
 
 

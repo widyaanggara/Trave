@@ -1,47 +1,5 @@
-const buttons = document.querySelectorAll('.option');
-const inputField = document.querySelector('input[type="text"]'); 
-const titleText = document.getElementById('title-text');
+// 
 
-buttons.forEach(button => {
-    button.addEventListener('click', function() {
-        buttons.forEach(btn => btn.classList.remove('active'));
-        this.classList.add('active');
-
-        const destination = this.querySelector('p').textContent; 
-        let placeholderText = '';
-        let title = '';
-
-        switch (destination) {
-            case 'Search All':
-                placeholderText = 'Temukan objek wisata anda...';
-                title = 'Ingin ke mana?';
-                break;
-            case 'Pantai':
-                placeholderText = 'Temukan pantai kesukaan anda...';
-                title = 'Temukan Keindahan Pantai';
-                break;
-            case 'Pura':
-                placeholderText = 'Temukan pura favorit anda...';
-                title = 'Jelajahi Keagungan Pura';
-                break;
-            case 'Pasar Seni':
-                placeholderText = 'Temukan pasar seni yang menarik...';
-                title = 'Eksplorasi Pasar Seni Otentik';
-                break;
-            case 'Wisata Alam':
-                placeholderText = 'Temukan wisata alam yang menakjubkan...';
-                title = 'Nikmati Keajaiban Alam';
-                break;
-            case 'Wisata Bahari':
-                placeholderText = 'Temukan pengalaman wisata bahari anda...';
-                title = 'Selami Serunya Wisata Bahari';
-                break;
-        }
-
-        inputField.placeholder = placeholderText;
-        titleText.textContent = title;
-    });
-});
 
 // Coba
 
