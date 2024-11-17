@@ -155,56 +155,6 @@ if (!$destination) {
                         <input type="date" id="datePicker" class="border border-gray-300 h-14 w-44 flex justify-center items-center rounded-full cursor-pointer focus:border-gray-500">
                     </div>
 
-                    <!-- Trigger button for modal -->
-                    {{-- <div id="open-modal" class="border border-gray-300 flex items-center justify-center gap-2 h-14 w-[84px] rounded-full cursor-pointer">
-                        <span class="material-symbols-outlined">groups</span> 3
-                    </div>
-
-                    <!-- Modal -->
-                    <div id="modal" class="z-40 fixed inset-0  flex items-center justify-center hidden">
-                        <div class="bg-white rounded-lg p-6 w-[300px] shadow-lg">
-                            <!-- Header Section -->
-                            <h2 class="text-center font-semibold text-lg mb-4">Select Travellers</h2>
-
-                            <!-- Adults Section -->
-                            <div class="flex justify-between items-center border-b pb-4 mb-4">
-                                <div>
-                                    <div class="font-semibold">Dewasa <span class="text-sm font-normal">Umur 18 - 65</span></div>
-                                    <div class="text-gray-600 text-sm">IDR</div>
-                                </div>
-                                <div class="flex items-center gap-2">
-                                    <button id="decrease-adults" class="w-8 h-8 flex items-center justify-center bg-gray-200 text-black rounded-full">
-                                        <span class="material-symbols-outlined">remove</span>
-                                    </button>
-                                    <span id="adult-count" class="font-semibold">2</span>
-                                    <button id="increase-adults" class="w-8 h-8 flex items-center justify-center bg-gray-200 text-black rounded-full">
-                                        <span class="material-symbols-outlined">add</span>
-                                    </button>
-                                </div>
-                            </div>
-
-                            <!-- Children Section -->
-                            <div class="flex justify-between items-center border-b pb-4 mb-4">
-                                <div>
-                                    <div class="font-semibold">Anak-anak <span class="text-sm font-normal">Umur 7 - 17</span></div>
-                                    <div class="text-gray-600 text-sm">IDR</div>
-                                </div>
-                                <div class="flex items-center gap-2">
-                                    <button id="decrease-children" class="w-8 h-8 flex items-center justify-center bg-gray-200 text-black rounded-full">
-                                        <span class="material-symbols-outlined">remove</span>
-                                    </button>
-                                    <span id="child-count" class="font-semibold">1</span>
-                                    <button id="increase-children" class="w-8 h-8 flex items-center justify-center bg-gray-200 text-black rounded-full">
-                                        <span class="material-symbols-outlined">add</span>
-                                    </button>
-                                </div>
-                            </div>
-
-                            <!-- Update Button -->
-                            <button id="update-search" class="w-full bg-orange-500 text-white py-2 rounded-full font-semibold hover:bg-orange-400 transition-colors duration-200">Update search</button>
-                        </div>
-                    </div> --}}
-
                     {{-- Jumlah Travelers  --}}
                     <div class="mt-4 font-semibold text-base">Select travellers</div>
                     <div class="grid sm:grid-cols-[6fr_6fr] gap-4 w-full " >

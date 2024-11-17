@@ -19,6 +19,9 @@ Route::get('/', function () {
 });
 
 Route::get('/dashboard', function () {
+    if (auth()->user()->role !== 'admin') {
+        return redirect('/');
+    }
     return view('admin.dashboard-admin');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
@@ -34,15 +37,56 @@ Route::get('/home', function () {
 })->middleware(['auth', 'verified'])->name('home');
 
 // Routes for DestinasiController
-Route::prefix('destinasi')->group(function () {
-    Route::get('/', [DestinasiController::class, 'index'])->name('destinasi.index');  // List all destinasi
-    Route::get('/create', [DestinasiController::class, 'create'])->name('destinasi.create'); // Show create form
-    Route::post('/', [DestinasiController::class, 'store'])->name('destinasi.store');  // Store a new destinasi
-    Route::get('/{id_destinasi}/edit', [DestinasiController::class, 'edit'])->name('destinasi.edit');  // Show edit form
-    Route::put('/{id_destinasi}', [DestinasiController::class, 'update'])->name('destinasi.update');// Update a destinasi
-    Route::delete('/{id_destinasi}', [DestinasiController::class, 'destroy'])->name('destinasi.destroy'); // Delete a destinasi
-    Route::get('/{id_destinasi}', [DestinasiController::class, 'show'])->name('destinasi.show');  // Show a specific destinasi
-    // Route::get('/kategori-destination', [DestinasiController::class, 'showKategoriDestination'])->name('destinasi.showKategoriDestination');
+Route::prefix('destinasi')->middleware('auth')->group(function () {
+    // Hanya admin yang dapat mengakses route ini
+    Route::get('/', function () {
+        if (auth()->user()->role !== 'admin') {
+            return redirect('/');  // Redirect jika bukan admin
+        }
+        return app(DestinasiController::class)->index();
+    })->name('destinasi.index');  // List all destinasi
+
+    Route::get('/create', function () {
+        if (auth()->user()->role !== 'admin') {
+            return redirect('/');  // Redirect jika bukan admin
+        }
+        return app(DestinasiController::class)->create();
+    })->name('destinasi.create'); // Show create form
+
+    Route::post('/', function () {
+        if (auth()->user()->role !== 'admin') {
+            return redirect('/');  // Redirect jika bukan admin
+        }
+        return app(DestinasiController::class)->store(request());
+    })->name('destinasi.store');  // Store a new destinasi
+
+    Route::get('/{id_destinasi}/edit', function ($id_destinasi) {
+        if (auth()->user()->role !== 'admin') {
+            return redirect('/');  // Redirect jika bukan admin
+        }
+        return app(DestinasiController::class)->edit($id_destinasi);
+    })->name('destinasi.edit');  // Show edit form
+
+    Route::put('/{id_destinasi}', function ($id_destinasi) {
+        if (auth()->user()->role !== 'admin') {
+            return redirect('/');  // Redirect jika bukan admin
+        }
+        return app(DestinasiController::class)->update($id_destinasi, request());
+    })->name('destinasi.update'); // Update a destinasi
+
+    Route::delete('/{id_destinasi}', function ($id_destinasi) {
+        if (auth()->user()->role !== 'admin') {
+            return redirect('/');  // Redirect jika bukan admin
+        }
+        return app(DestinasiController::class)->destroy($id_destinasi);
+    })->name('destinasi.destroy'); // Delete a destinasi
+
+    Route::get('/{id_destinasi}', function ($id_destinasi) {
+        if (auth()->user()->role !== 'admin') {
+            return redirect('/');  // Redirect jika bukan admin
+        }
+        return app(DestinasiController::class)->show($id_destinasi);
+    })->name('destinasi.show');  // Show a specific destinasi
 });
 
 // Percobaan Kategori
