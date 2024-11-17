@@ -3,8 +3,7 @@
         <div class="flex flex-col md:flex-row md:space-x-20">
             <div class="md:w-1/3 mb-8 md:mb-0">
                 <div class="flex items-center space-x-2 mb-4">
-                    <img src="../assets/images/icon.png" alt="" class="w-10 h-10">
-                    <h1 class="text-2xl font-bold text-green-500">Trave</h1>
+                    <h1 class="text-3xl font-bold text-green-500">Trave</h1>
                 </div>
                 <p class="text-gray-700"><strong>Trave</strong> adalah platform terpercaya untuk menjelajahi keindahan Indonesia, menawarkan rencana perjalanan fleksibel dan destinasi beragam, dari pesona alam hingga kekayaan budaya.</p>
             </div>
@@ -12,9 +11,9 @@
                 <div>
                     <h3 class="text-lg font-semibold mb-4">Discover</h3>
                     <div class="flex flex-col space-y-2">
-                        <a href="#" class="text-gray-600">Home</a>
-                        <a href="../about/about.html" class="text-gray-600">About</a>
-                        <a href="../tours/tours.html" class="text-gray-600">Tours</a>
+                        <div class="text-gray-600 cursor-pointer">Home</div>
+                        <div class="text-gray-600 cursor-pointer">About</div>
+                        <div class="text-gray-600 cursor-pointer">Tours</div>
                     </div>
                 </div>
                 <div>

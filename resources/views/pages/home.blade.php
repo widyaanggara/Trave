@@ -281,7 +281,7 @@
                 </div>
 
                 <!-- Get Started Button -->
-                <a href="" class="bg-green-500 text-black px-6 py-4 rounded-xl md:rounded-full w-full md:w-auto flex justify-center items-center font-semibold text-sm transition ease-in-out duration-300 hover:bg-green-400">Get Started</a>
+                <a href="{{ route('login') }}" class="bg-green-500 text-black px-6 py-4 rounded-xl md:rounded-full w-full md:w-auto flex justify-center items-center font-semibold text-sm transition ease-in-out duration-300 hover:bg-green-400">Get Started</a>
             </div>
 
 
