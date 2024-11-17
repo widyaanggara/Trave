@@ -29,16 +29,8 @@ if (!$destination) {
             {{ $destination->alamat }}
         </div>
         <div class="mt-3 flex flex-col md:flex-row items-start">
-            <div class="flex gap-[3px] justify-start items-center">
-                <div class="w-[1rem] h-[1rem] bg-[#22c55e] rounded-full"></div>
-                <div class="w-[1rem] h-[1rem] bg-[#22c55e] rounded-full"></div>
-                <div class="w-[1rem] h-[1rem] bg-[#22c55e] rounded-full"></div>
-                <div class="w-[1rem] h-[1rem] bg-[#22c55e] rounded-full"></div>
-                <div class="w-[1rem] h-[1rem] bg-[#22c55e] rounded-full"></div>
-                <div class="ml-2 text-base text-gray-600 font-medium underline cursor-pointer">145 reviews</div>
-            </div>
             <div class="flex items-center gap-1 mt-2 md:mt-0">
-                <span class="material-symbols-outlined text-red-500 md:ml-2  md:mr-1" style="font-variation-settings:'FILL' 1,'wght' 400, 'GRAD' 0, 'opsz' 24">verified</span>Recommended by 96% of travellers
+                <span class="material-symbols-outlined text-red-500  md:mr-1" style="font-variation-settings:'FILL' 1,'wght' 400, 'GRAD' 0, 'opsz' 24">verified</span>Recommended by 96% of travellers
             </div>
         </div>
 
@@ -64,12 +56,8 @@ if (!$destination) {
     <section class="w-[90%] max-w-[1200px] mx-auto mt-10 mb-10">
         <div class="grid lg:grid-cols-[7fr_5fr] gap-10">
             <div class="order-2 lg:order-1">
-                <div class="flex items-center justify-between">
+                <div class="">
                     <div class="font-bold text-lg">About</div>
-                    <div class="flex justify-center items-center gap-1 font-medium cursor-pointer">
-                        <span class="material-symbols-outlined">stylus</span>
-                        <div class="underline">Write a review</div>
-                    </div>
                 </div>
                 {{-- About --}}
                 <div class="my-8">{{ $destination->description }}</div>
@@ -79,7 +67,7 @@ if (!$destination) {
                         <span class="material-symbols-outlined mr-3 text-gray-800">groups</span>Age 7-65
                     </div>
                     <div class="flex items-center text-base">
-                        <span class="material-symbols-outlined mr-3 text-gray-800">update</span>Duration: 6h
+                        <span class="material-symbols-outlined mr-3 text-gray-800">update</span>Duration: {{ $destination->duration }}
                     </div>
                     <div class="flex items-center text-base">
                         <span class="material-symbols-outlined mr-3">schedule</span>Start time: Check availability
@@ -154,9 +142,13 @@ if (!$destination) {
                     <div class=" relative" id="date">
                         <input type="date" id="datePicker" class="border border-gray-300 h-14 w-44 flex justify-center items-center rounded-full cursor-pointer focus:border-gray-500">
                     </div>
+                    <div class="">
+                        <label for="time" class="block font-medium mb-1">Pilih Waktu:</label>
+                        <input type="time" id="time" name="time" class="border border-gray-300 rounded-lg p-2 text-gray-700 focus:outline-none focus:ring-2 focus:ring-transparent focus:border-gray-500 cursor-pointer">
+                    </div>
 
                     {{-- Jumlah Travelers  --}}
-                    <div class="mt-4 font-semibold text-base">Select travellers</div>
+                    <div class="mt-2 font-semibold text-base">Select travellers</div>
                     <div class="grid sm:grid-cols-[6fr_6fr] gap-4 w-full">
                         <div class="w-full">
                             <label for="dewasa">Adult</label>
@@ -182,19 +174,15 @@ if (!$destination) {
                             <div class="mt-2">
                                 <div class="text-sm">{{ $destination->nama_destinasi }}</div>
                                 <div class="text-sm">Duration: {{ $destination->duration }}</div>
-                                <div class="text-sm">Travel Guide</div>
+                                <div class="text-sm">Include Guide</div>
                                 <div class="text-sm">Location: {{ $destination->alamat }}</div>
                             </div>
                             <div class="mt-3">
-                                <div class="text-sm"><span>1</span> Dewasa x IDR <span>{{ number_format($destination->harga_dewasa_paket, 0, ',', '.') }}</span></div>
-                                <div class="text-sm"><span>1</span> Anak-anak x IDR <span>{{ number_format($destination->harga_anak_paket, 0, ',', '.') }}</span></div>
-                                <div class="text-base font-semibold">Total IDR <span>300.000</span></div>
+                                <div class="text-sm">Harga Dewasa : IDR <span>{{ number_format($destination->harga_dewasa_paket, 0, ',', '.') }}</span></div>
+                                <div class="text-sm">Harga Anak-anak : IDR <span>{{ number_format($destination->harga_anak_paket, 0, ',', '.') }}</span></div>
                             </div>
-                            <div class="mt-2">
-                                <label for="time" class="block font-medium mb-1">Pilih Waktu:</label>
-                                <input type="time" id="time" name="time" class="border border-gray-300 rounded-lg p-2 text-gray-700 focus:outline-none focus:ring-2 focus:ring-transparent focus:border-gray-500 cursor-pointer">
-                            </div>
-                            <div class="mt-2 text-xs text-gray-700">*Pilihan populer berdasarkan jumlah pemesanan di situs Trave selama 60 hari terakhir.</div>
+                            <div class="mt-2 text-xs text-gray-700">*Harga termasuk pajak.</div>
+                            <div class="mt-1 text-xs text-gray-700">*Pilihan populer berdasarkan jumlah pemesanan di situs Trave selama 60 hari terakhir.</div>
                         </label>
 
                         <span class="absolute right-4 top-4 rounded-full border-2 border-gray-500 bg-transparent transition duration-300 cursor-pointer" id="outer-circle-1">
@@ -210,17 +198,15 @@ if (!$destination) {
                             <div class="mt-1">
                                 <div class="text-sm">{{ $destination->nama_destinasi }}</div>
                                 <div class="text-sm">Duration: {{ $destination->duration }}</div>
+                                <div class="text-sm">Not Include Guide</div>
+
                                 <div class="text-sm">Location: {{ $destination->alamat }}</div>
                             </div>
                             <div class="mt-3">
-                                <div class="text-sm"><span>1</span> Dewasa x IDR <span>{{ number_format($destination->harga_dewasa_nonpaket, 0, ',', '.') }}</span></div>
-                                <div class="text-sm"><span>1</span> Anak-anak x IDR <span>{{ number_format($destination->harga_anak_nonpaket, 0, ',', '.') }}</span></div>
-                                <div class="text-base font-semibold">Total IDR <span>200.000</span></div>
+                                <div class="text-sm">Harga Dewasa : IDR <span>{{ number_format($destination->harga_dewasa_nonpaket, 0, ',', '.') }}</span></div>
+                                <div class="text-sm">Harga Anak-anak : IDR <span>{{ number_format($destination->harga_anak_nonpaket, 0, ',', '.') }}</span></div>
                             </div>
-                            <div class="mt-2">
-                                <label for="time" class="block font-medium mb-1">Pilih Waktu:</label>
-                                <input type="time" id="time" name="time" class="border border-gray-300 rounded-lg p-2 text-gray-700 focus:outline-none focus:ring-2 focus:ring-transparent focus:border-gray-500 cursor-pointer">
-                            </div>
+                            <div class="mt-2 text-xs text-gray-700">*Harga termasuk pajak.</div>
                         </label>
 
                         <span class="absolute right-4 top-4 rounded-full border-2 border-gray-500 bg-transparent transition duration-300 cursor-pointer" id="outer-circle-2">
