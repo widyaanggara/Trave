@@ -5,6 +5,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DestinasiController;
 use App\Http\Controllers\PemesanantController;
 use App\Http\Controllers\UserManagementController;
+use App\Http\Controllers\DashboardController;
+use App\Models\Pemesanan;
 
 Route::get('/admin-acc', function () {
     return view('admin.account');
@@ -20,12 +22,17 @@ Route::get('/riwayat', function () {
 Route::get('/', [DestinasiController::class, 'showDestinations']);
 
 
-Route::get('/dashboard', function () {
-    if (auth()->user()->role !== 'admin') {
-        return redirect('/');
-    }
-    return view('admin.dashboard-admin');
-})->middleware(['auth', 'verified'])->name('dashboard');
+// Route::get('/dashboard', function () {
+//     if (auth()->user()->role !== 'admin') {
+//         return redirect('/');
+//     }
+//     return view('admin.dashboard-admin');
+// })->middleware(['auth', 'verified'])->name('dashboard');
+
+Route::get('/dashboard', [DashboardController::class, 'showDashboard'])
+    ->middleware(['auth', 'verified'])
+    ->name('dashboard');
+
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'index'])->name('profile'); // Define profile route here
