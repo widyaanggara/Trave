@@ -14,9 +14,11 @@ Route::get('/riwayat', function () {
     return view('pages.riwayat-pembelian');
 })->name('riwayat');
 
-Route::get('/', function () {
-    return view('pages.home');
-});
+// Route::get('/', function () {
+//     return view('pages.home');
+// });
+Route::get('/', [DestinasiController::class, 'showDestinations']);
+
 
 Route::get('/dashboard', function () {
     if (auth()->user()->role !== 'admin') {
@@ -32,9 +34,9 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route::get('/home', function () {
-    return view('pages.home');
-})->middleware(['auth', 'verified'])->name('home');
+// Existing route for home
+Route::get('/home', [DestinasiController::class, 'indexuser'])->middleware(['auth', 'verified'])->name('home');
+
 
 // Routes for DestinasiController
 Route::prefix('destinasi')->middleware('auth')->group(function () {
