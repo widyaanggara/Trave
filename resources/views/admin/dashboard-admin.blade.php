@@ -51,7 +51,7 @@
                 
             </div>
         </div>
-        <canvas id="myChart" style="width:100%;max-width:700px; opacity:1;"></canvas>
+        <canvas id="myChart" style="width:100%;max-width:700px"></canvas>
 
     </div>
     <script>
