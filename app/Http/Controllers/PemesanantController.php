@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Destinasi;
 use App\Models\Pemesanan;
+use App\Models\User;
 
 class PemesanantController extends Controller
 {
@@ -75,7 +76,23 @@ class PemesanantController extends Controller
 
     public function payment()
     {
-        return view('pages.payment');
+        // Ambil data user yang sedang login
+        $user = auth()->user();
+    
+        // Ambil data pemesanan terbaru user ini
+        $pemesanan = Pemesanan::where('user_id', $user->id)
+            ->latest()
+            ->first();
+    
+        if (!$pemesanan) {
+            return redirect()->route('home')->with('error', 'Tidak ada pemesanan ditemukan.');
+        }
+    
+        // Ambil data destinasi berdasarkan pemesanan
+        $destinasi = Destinasi::findOrFail($pemesanan->destinasi_id);
+    
+        // Kirim data ke view
+        return view('pages.payment', compact('user', 'pemesanan', 'destinasi'));
     }
 
     /**

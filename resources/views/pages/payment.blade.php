@@ -27,7 +27,7 @@
                         <div>
                             <div class="font-semibold mb-1">User</div>
                             <div class="relative">
-                                <input type="text" value="User" class="p-3 bg-gray-200 w-full pl-10 font-medium text-sm rounded-lg">
+                                <input type="text" value="{{ $user->name }}" class="p-3 bg-gray-200 w-full pl-10 font-medium text-sm rounded-lg">
                                 <span class="material-symbols-outlined absolute left-3 top-1/2 transform -translate-y-1/2" style="font-size: 1.3rem">account_circle</span>
                             </div>
                         </div>
@@ -35,7 +35,7 @@
                         <div>
                             <div class="font-semibold mb-1">Email</div>
                             <div class="relative">
-                                <input type="text" value="user@gmail.com" class="p-3 bg-gray-200 w-full pl-10 font-medium text-sm rounded-lg">
+                                <input type="text" value="{{ $user->email }}" class="p-3 bg-gray-200 w-full pl-10 font-medium text-sm rounded-lg">
                                 <span class="material-symbols-outlined absolute left-3 top-1/2 transform -translate-y-1/2" style="font-size: 1.3rem">mail</span>
                             </div>
                         </div>
@@ -43,7 +43,7 @@
                         <div>
                             <div class="font-semibold mb-1">Phone</div>
                             <div class="relative">
-                                <input type="text" value="123456789021" class="p-3 bg-gray-200 w-full pl-10 font-medium text-sm rounded-lg">
+                                <input type="text" value="{{ $user->phone ?? 'Not Provided' }}" class="p-3 bg-gray-200 w-full pl-10 font-medium text-sm rounded-lg">
                                 <span class="material-symbols-outlined absolute left-3 top-1/2 transform -translate-y-1/2" style="font-size: 1.3rem">phone</span>
                             </div>
                         </div>
@@ -51,7 +51,7 @@
                         <div>
                             <div class="font-semibold mb-1">Total</div>
                             <div class="relative">
-                                <input type="text" value="2" class="p-3 bg-gray-200 w-full pl-10 font-medium text-sm rounded-lg">
+                                <input type="text" value="{{ $pemesanan->jumlah_dewasa + $pemesanan->jumlah_anak }}" class="p-3 bg-gray-200 w-full pl-10 font-medium text-sm rounded-lg">
                                 <span class="material-symbols-outlined absolute left-3 top-1/2 transform -translate-y-1/2" style="font-size: 1.3rem">group</span>
                             </div>
                         </div>
@@ -59,7 +59,7 @@
                         <div>
                             <div class="font-semibold mb-1">Date</div>
                             <div class="relative">
-                                <input type="text" value="10/11/2024" class="p-3 bg-gray-200 w-full pl-10 font-medium text-sm rounded-lg">
+                                <input type="text" value="{{ $pemesanan->date_travel }}" class="p-3 bg-gray-200 w-full pl-10 font-medium text-sm rounded-lg">
                                 <span class="material-symbols-outlined absolute left-3 top-1/2 transform -translate-y-1/2" style="font-size: 1.3rem">calendar_month</span>
                             </div>
                         </div>
@@ -67,17 +67,18 @@
                         <div>
                             <div class="font-semibold mb-1">Time</div>
                             <div class="relative">
-                                <input type="text" value="10.00" class="p-3 bg-gray-200 w-full pl-10 font-medium text-sm rounded-lg">
+                                <input type="text" value="{{ $pemesanan->time_travel }}" class="p-3 bg-gray-200 w-full pl-10 font-medium text-sm rounded-lg">
                                 <span class="material-symbols-outlined absolute left-3 top-1/2 transform -translate-y-1/2" style="font-size: 1.3rem">schedule</span>
                             </div>
                         </div>
                     </div>
 
+
                     <div class="font-semibold text-lg mt-4">Payment</div>
                     <div class="mt-2 bg-[#f2f5fa] flex flex-col justify-center items-center font-medium p-10 rounded-lg text-center">
                         <div>Your total payment</div>
-                        <div class="text-3xl font-bold my-1">IDR 200.000</div>
-                        <div class="text-sm text-gray-600 ">Pay before 11 November 2024</div>
+                        <div class="text-3xl font-bold my-1">IDR {{ number_format($pemesanan->jumlah_pembayaran, 0, ',', '.') }}</div>
+                        <div class="text-sm text-gray-600 ">Pay before {{ $pemesanan->date_travel }}</div>
                     </div>
 
                     <div class="font-semibold text-lg mt-4">Select Method</div>
@@ -125,7 +126,7 @@
             </div>
 
             <div class="bg-gray-50">
-                b
+                
             </div>
 
         </div>
