@@ -44,9 +44,66 @@
                     <p class="text-2xl font-bold">15</p>
                 </div>
             </div>
+            <div class="container">
+                <h2>Dashboard Admin</h2>
+
+                <!-- Grafik Pemesanan Harian -->
+                
+            </div>
         </div>
+        <canvas id="myChart" style="width:100%;max-width:700px; opacity:1;"></canvas>
 
     </div>
+    <script>
+        const months = @json($months); // Data bulan dari controller
+        const orderCounts = @json($orderCounts); // Data jumlah pemesanan dari controller
+
+        const ctx = document.getElementById('ordersChart').getContext('2d');
+        const ordersChart = new Chart(ctx, {
+            type: 'line', // Tipe grafik garis
+            data: {
+                labels: months, // Label bulan
+                datasets: [{
+                    label: 'Jumlah Pemesanan',
+                    data: orderCounts, // Data jumlah pemesanan
+                    borderColor: 'rgb(75, 192, 192)',
+                    backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                    fill: true,
+                    tension: 0.4
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        position: 'top',
+                    },
+                    tooltip: {
+                        callbacks: {
+                            label: function(tooltipItem) {
+                                return `Jumlah Pemesanan: ${tooltipItem.raw}`;
+                            }
+                        }
+                    }
+                },
+                scales: {
+                    x: {
+                        title: {
+                            display: true,
+                            text: 'Bulan'
+                        }
+                    },
+                    y: {
+                        title: {
+                            display: true,
+                            text: 'Jumlah Pemesanan'
+                        },
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    </script>
 @endsection
 
 
