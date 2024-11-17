@@ -20,37 +20,37 @@ accordionHeaders.forEach(accordionHeader => {
 
 
 // Modal
-const openModalBtn = document.getElementById('open-modal');
-const modal = document.getElementById('modal');
-const updateSearchBtn = document.getElementById('update-search');
-const closeModalArea = document.getElementById('modal');
+// const openModalBtn = document.getElementById('open-modal');
+// const modal = document.getElementById('modal');
+// const updateSearchBtn = document.getElementById('update-search');
+// const closeModalArea = document.getElementById('modal');
 
-openModalBtn.addEventListener('click', () => {
-    modal.classList.remove('hidden');
-    openModalBtn.classList.add('border-gray-800');
-    openModalBtn.classList.remove('border-gray-300');
-    openModalBtn.classList.add('border-2');
-    openModalBtn.classList.remove('border');
-});
+// openModalBtn.addEventListener('click', () => {
+//     modal.classList.remove('hidden');
+//     openModalBtn.classList.add('border-gray-800');
+//     openModalBtn.classList.remove('border-gray-300');
+//     openModalBtn.classList.add('border-2');
+//     openModalBtn.classList.remove('border');
+// });
 
-updateSearchBtn.addEventListener('click', () => {
-    modal.classList.add('hidden');
-    openModalBtn.classList.remove('border-gray-800');
-    openModalBtn.classList.add('border-gray-300');
-    openModalBtn.classList.remove('border-2');
-    openModalBtn.classList.add('border');
+// updateSearchBtn.addEventListener('click', () => {
+//     modal.classList.add('hidden');
+//     openModalBtn.classList.remove('border-gray-800');
+//     openModalBtn.classList.add('border-gray-300');
+//     openModalBtn.classList.remove('border-2');
+//     openModalBtn.classList.add('border');
 
-});
+// });
 
-window.addEventListener('click', (e) => {
-    if (e.target === modal) {
-        modal.classList.add('hidden');
-        openModalBtn.classList.remove('border-gray-800');
-        openModalBtn.classList.add('border-gray-300');
-        openModalBtn.classList.remove('border-2');
-        openModalBtn.classList.add('border');
-    }
-});
+// window.addEventListener('click', (e) => {
+//     if (e.target === modal) {
+//         modal.classList.add('hidden');
+//         openModalBtn.classList.remove('border-gray-800');
+//         openModalBtn.classList.add('border-gray-300');
+//         openModalBtn.classList.remove('border-2');
+//         openModalBtn.classList.add('border');
+//     }
+// });
 // Modal End
 
 

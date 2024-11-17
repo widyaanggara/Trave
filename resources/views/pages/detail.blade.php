@@ -149,14 +149,14 @@ if (!$destination) {
             <div class="order-1 lg:order-2 lg:sticky top-20 self-start border p-4 rounded-lg shadow-lg">
                 <div class="font-bold text-2xl">From IDR {{ number_format($destination->harga_dewasa_nonpaket, 0, ',', '.') }}</div>
                 <div class="text-gray-800">Per adult (price varies by group size)</div>
-                <div class="mt-4 font-semibold text-base">Select date and travellers</div>
-                <div class="flex items-center gap-2 mt-3">
+                <div class="mt-4 font-semibold text-base">Select date</div>
+                <div class="flex flex-col items-start gap-2 mt-3">
                     <div class=" relative" id="date">
                         <input type="date" id="datePicker" class="border border-gray-300 h-14 w-44 flex justify-center items-center rounded-full cursor-pointer focus:border-gray-500">
                     </div>
 
                     <!-- Trigger button for modal -->
-                    <div id="open-modal" class="border border-gray-300 flex items-center justify-center gap-2 h-14 w-[84px] rounded-full cursor-pointer">
+                    {{-- <div id="open-modal" class="border border-gray-300 flex items-center justify-center gap-2 h-14 w-[84px] rounded-full cursor-pointer">
                         <span class="material-symbols-outlined">groups</span> 3
                     </div>
 
@@ -202,6 +202,19 @@ if (!$destination) {
 
                             <!-- Update Button -->
                             <button id="update-search" class="w-full bg-orange-500 text-white py-2 rounded-full font-semibold hover:bg-orange-400 transition-colors duration-200">Update search</button>
+                        </div>
+                    </div> --}}
+
+                    {{-- Jumlah Travelers  --}}
+                    <div class="mt-4 font-semibold text-base">Select travellers</div>
+                    <div class="grid sm:grid-cols-[6fr_6fr] gap-4 w-full " >
+                        <div class="w-full">
+                            <label for="dewasa">Adult</label>
+                            <input type="number" id="dewasa" name="dewasa" class="border border-gray-300 w-full rounded-lg py-1 px-3 mt-1 text-gray-800">
+                        </div>
+                        <div class="w-full">
+                            <label for="children">Children</label>
+                            <input type="number" id="children" name="children" class="border border-gray-300 w-full rounded-lg py-1 px-3 mt-1 text-gray-800">
                         </div>
                     </div>
 
