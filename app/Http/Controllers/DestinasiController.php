@@ -22,6 +22,12 @@ class DestinasiController extends Controller
         // Mengirim data destinasi ke view
         return view('admin.destinasi', compact('destinasi'));
     }
+    public function indexuser()
+    {
+        $destinasi = Destinasi::all(); // Fetch all destinations
+        return view('pages.home', compact('destinasi')); // Pass the data to the view
+    }
+    
     public function show($id_destinasi)
 {
     // Ambil data destinasi berdasarkan id_destinasi
@@ -37,7 +43,7 @@ class DestinasiController extends Controller
         $destinasi = Destinasi::all(); // or any query to get the data
 
         // Pass the destinations to the view
-        return view('pages.kategori-pura', compact('destinasi'));
+        return view('pages.home', compact('destinasi'));
     }
     public function showDetail($id_destinasi)
     {
@@ -234,6 +240,8 @@ public function update(Request $request, $id_destinasi)
         return redirect()->route('destinasi.index')->with('success', 'Destinasi berhasil dihapus!');
     }
 
+
+    
 
     // Untuk kategori pura
     public function showDestinationsPura()

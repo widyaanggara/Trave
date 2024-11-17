@@ -154,14 +154,14 @@
         <div class="carousel relative">
             <div class="swiper recently-viewed-slider overflow-hidden">
                 <div class="swiper-wrapper">
-
+                    @foreach($destinasi as $destination)
                     <a href="" class="swiper-slide rounded relative cursor-pointer group overflow-hidden">
                         <div class="overflow-hidden rounded">
-                            <img src="{{ asset('images/white-river-rafting-bali.jpg') }}" alt="Background Image" class="w-full h-full object-cover transition-transform duration-300 transform group-hover:scale-105">
+                            <img src="{{ $destination->thumbnail ? Storage::url($destination->thumbnail)  : 'https://via.placeholder.com/400' }}" alt="{{ $destination->nama_destinasi }}" class="w-full h-full object-cover transition-transform duration-300 transform group-hover:scale-105">
                         </div>
                         <div class="">
                             <div class="pt-1 pb-2 text-black text-[1.2rem] lg:text-lg font-bold rounded">
-                                Rafting Sungai Ayung Bali - Ubud White Water Rafting
+                                {{ $destination->sub_judul }}
                             </div>
                             <div class="flex gap-[2px] justify-start items-center">
                                 <div class="w-[0.8rem] h-[0.8rem] bg-[#22c55e] rounded-full"></div>
@@ -172,65 +172,8 @@
                                 <div class="ml-2 text-sm text-gray-600">4002</div>
                             </div>
                         </div>
-                    </a>
-
-                    <a href="" class="swiper-slide rounded relative cursor-pointer group overflow-hidden">
-                        <div class="overflow-hidden rounded"> <!-- Add overflow-hidden here -->
-                            <img src="{{ asset('images/penglipuran.jpg') }}" alt="Background Image" class="w-full h-full object-cover transition-transform duration-300 transform group-hover:scale-105">
-                        </div>
-                        <div class="">
-                            <div class="pt-1 pb-2 text-black text-[1.2rem] lg:text-lg font-bold rounded">
-                                Tur Budaya di Desa Penglipuran - Menyelami Tradisi Bali
-                            </div>
-                            <div class="flex gap-[2px] justify-start items-center">
-                                <div class="w-[0.8rem] h-[0.8rem] bg-[#22c55e] rounded-full"></div>
-                                <div class="w-[0.8rem] h-[0.8rem] bg-[#22c55e] rounded-full"></div>
-                                <div class="w-[0.8rem] h-[0.8rem] bg-[#22c55e] rounded-full"></div>
-                                <div class="w-[0.8rem] h-[0.8rem] bg-[#22c55e] rounded-full"></div>
-                                <div class="w-[0.8rem] h-[0.8rem] bg-[#22c55e] rounded-full"></div>
-                                <div class="ml-2 text-sm text-gray-600">4002</div>
-                            </div>
-                        </div>
-                    </a>
-
-                    <a href="" class="swiper-slide rounded relative cursor-pointer group overflow-hidden">
-                        <div class="overflow-hidden rounded"> <!-- Add overflow-hidden here -->
-                            <img src="{{ asset('images/ubud-jungle-atv-3.jpg') }}" alt="Background Image" class="w-full h-full object-cover transition-transform duration-300 transform group-hover:scale-105">
-                        </div>
-                        <div class="">
-                            <div class="pt-1 pb-2 text-black text-[1.2rem] lg:text-lg font-bold rounded">
-                                Petualangan ATV di Ubud - Eksplorasi Alam Bali
-                            </div>
-                            <div class="flex gap-[2px] justify-start items-center">
-                                <div class="w-[0.8rem] h-[0.8rem] bg-[#22c55e] rounded-full"></div>
-                                <div class="w-[0.8rem] h-[0.8rem] bg-[#22c55e] rounded-full"></div>
-                                <div class="w-[0.8rem] h-[0.8rem] bg-[#22c55e] rounded-full"></div>
-                                <div class="w-[0.8rem] h-[0.8rem] bg-[#22c55e] rounded-full"></div>
-                                <div class="w-[0.8rem] h-[0.8rem] bg-[#22c55e] rounded-full"></div>
-                                <div class="ml-2 text-sm text-gray-600">4002</div>
-                            </div>
-                        </div>
-                    </a>
-
-                    <a href="" class="swiper-slide rounded relative cursor-pointer group overflow-hidden">
-                        <div class="overflow-hidden rounded">
-                            <img src="{{ asset('images/tegenungan.webp') }}" alt="Background Image" class="w-full h-full object-cover transition-transform duration-300 transform group-hover:scale-105">
-                        </div>
-                        <div class="">
-                            <div class="pt-1 pb-2 text-black text-[1.2rem] lg:text-lg font-bold rounded">
-                                Air Terjun Tegenungan - Surga Tersembunyi di Bali
-                            </div>
-                            <div class="flex gap-[2px] justify-start items-center">
-                                <div class="w-[0.8rem] h-[0.8rem] bg-[#22c55e] rounded-full"></div>
-                                <div class="w-[0.8rem] h-[0.8rem] bg-[#22c55e] rounded-full"></div>
-                                <div class="w-[0.8rem] h-[0.8rem] bg-[#22c55e] rounded-full"></div>
-                                <div class="w-[0.8rem] h-[0.8rem] bg-[#22c55e] rounded-full"></div>
-                                <div class="w-[0.8rem] h-[0.8rem] bg-[#22c55e] rounded-full"></div>
-                                <div class="ml-2 text-sm text-gray-600">4002</div>
-                            </div>
-                        </div>
-                    </a>
-
+                    </a>    
+                    @endforeach
                 </div>
             </div>
         </div>
@@ -261,95 +204,16 @@
         <div class="carousel relative">
             <div class="swiper explore-next-slider overflow-hidden">
                 <div class="swiper-wrapper">
+                    @foreach($destinasi as $destination)
                     <a href="/detail" class="swiper-slide rounded relative shadow-lg cursor-pointer group overflow-hidden">
-                        <img src="{{ asset('images/lempuyang.jpg') }}" alt="Background Image" class="w-full h-full object-cover rounded transition-transform duration-300 transform group-hover:scale-105">
+                        <img src="{{ $destination->thumbnail ? Storage::url($destination->thumbnail)  : 'https://via.placeholder.com/400' }}" alt="{{ $destination->nama_destinasi }}" class="w-full h-full object-cover rounded transition-transform duration-300 transform group-hover:scale-105">
                         <div class="absolute w-full bottom-0">
                             <div class="bg-gradient-to-t from-[#000000c0] to-transparent px-5 pt-20 pb-5 text-white text-2xl font-bold rounded">
-                                Lempuyang
+                                {{ $destination->nama_destinasi }}
                             </div>
                         </div>
                     </a>
-
-                    <a href="" class="swiper-slide rounded relative shadow-lg cursor-pointer group overflow-hidden">
-                        <img src="{{ asset('images/uluwatu.jpg') }}" alt="Background Image" class="w-full h-full object-cover rounded transition-transform duration-300 transform group-hover:scale-105">
-                        <div class="absolute w-full bottom-0">
-                            <div class="bg-gradient-to-t from-[#000000c0] to-transparent px-5 pt-20 pb-5 text-white text-2xl font-bold rounded">
-                                Uluwatu
-                            </div>
-                        </div>
-                    </a>
-
-                    <a href="" class="swiper-slide rounded relative shadow-lg cursor-pointer group overflow-hidden">
-                        <img src="{{ asset('images/nusapenida.png') }}" alt="Background Image" class="w-full h-full object-cover rounded transition-transform duration-300 transform group-hover:scale-105">
-                        <div class="absolute w-full bottom-0">
-                            <div class="bg-gradient-to-t from-[#000000c0] to-transparent px-5 pt-20 pb-5 text-white text-2xl font-bold rounded">
-                                Nusa Penida
-                            </div>
-                        </div>
-                    </a>
-
-                    <a href="" class="swiper-slide rounded relative shadow-lg cursor-pointer group overflow-hidden">
-                        <img src="{{ asset('images/monkeyforest.jpg') }}" alt="Background Image" class="w-full h-full object-cover rounded transition-transform duration-300 transform group-hover:scale-105">
-                        <div class="absolute w-full bottom-0">
-                            <div class="bg-gradient-to-t from-[#000000c0] to-transparent px-5 pt-20 pb-5 text-white text-2xl font-bold rounded">
-                                Monkey Forest
-                            </div>
-                        </div>
-                    </a>
-
-                    <a href="" class="swiper-slide rounded relative shadow-lg cursor-pointer group overflow-hidden">
-                        <img src="{{ asset('images/tirtaempul.jpg') }}" alt="Background Image" class="w-full h-full object-cover rounded transition-transform duration-300 transform group-hover:scale-105">
-                        <div class="absolute w-full bottom-0">
-                            <div class="bg-gradient-to-t from-[#000000c0] to-transparent px-5 pt-20 pb-5 text-white text-2xl font-bold rounded">
-                                Tirta Empul
-                            </div>
-                        </div>
-                    </a>
-
-                    <a href="" class="swiper-slide rounded relative shadow-lg cursor-pointer group overflow-hidden">
-                        <img src="{{ asset('images/danau beratan.jpg') }}" alt="Background Image" class="w-full h-full object-cover rounded transition-transform duration-300 transform group-hover:scale-105">
-                        <div class="absolute w-full bottom-0">
-                            <div class="bg-gradient-to-t from-[#000000c0] to-transparent px-5 pt-20 pb-5 text-white text-2xl font-bold rounded">
-                                Danau Beratan
-                            </div>
-                        </div>
-                    </a>
-
-                    <a href="" class="swiper-slide rounded relative shadow-lg cursor-pointer group overflow-hidden">
-                        <img src="{{ asset('images/desa munduk.jpg') }}" alt="Background Image" class="w-full h-full object-cover rounded transition-transform duration-300 transform group-hover:scale-105">
-                        <div class="absolute w-full bottom-0">
-                            <div class="bg-gradient-to-t from-[#000000c0] to-transparent px-5 pt-20 pb-5 text-white text-2xl font-bold rounded">
-                                Desa Munduk
-                            </div>
-                        </div>
-                    </a>
-
-                    <a href="" class="swiper-slide rounded relative shadow-lg cursor-pointer group overflow-hidden">
-                        <img src="{{ asset('images/sekumpul.png') }}" alt="Background Image" class="w-full h-full object-cover rounded transition-transform duration-300 transform group-hover:scale-105">
-                        <div class="absolute w-full bottom-0">
-                            <div class="bg-gradient-to-t from-[#000000c0] to-transparent px-5 pt-20 pb-5 text-white text-2xl font-bold rounded">
-                                Sekumpul Waterfall
-                            </div>
-                        </div>
-                    </a>
-
-                    <a href="" class="swiper-slide rounded relative shadow-lg cursor-pointer group overflow-hidden">
-                        <img src="{{ asset('images/baturrr.jpg') }}" alt="Background Image" class="w-full h-full object-cover rounded transition-transform duration-300 transform group-hover:scale-105">
-                        <div class="absolute w-full bottom-0">
-                            <div class="bg-gradient-to-t from-[#000000c0] to-transparent px-5 pt-20 pb-5 text-white text-2xl font-bold rounded">
-                                Gunung Batur
-                            </div>
-                        </div>
-                    </a>
-
-                    <a href="" class="swiper-slide rounded relative shadow-lg cursor-pointer group overflow-hidden">
-                        <img src="{{ asset('images/jatiluwih.jpg') }}" alt="Background Image" class="w-full h-full object-cover rounded transition-transform duration-300 transform group-hover:scale-105">
-                        <div class="absolute w-full bottom-0">
-                            <div class="bg-gradient-to-t from-[#000000c0] to-transparent px-5 pt-20 pb-5 text-white text-2xl font-bold rounded">
-                                Jatiluwih
-                            </div>
-                        </div>
-                    </a>
+                    @endforeach
                 </div>
             </div>
             <div class="swiper-prevs shadow-lg absolute top-1/2 -left-5 -translate-y-1/2 z-10 w-10 h-10 bg-white text-black flex justify-center items-center rounded-full cursor-pointer">
