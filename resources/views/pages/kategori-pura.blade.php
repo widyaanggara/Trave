@@ -34,8 +34,8 @@
     <section class="w-[90%] max-w-[1200px] mx-auto mt-14 mb-10">
         <div class="font-bold text-2xl mb-4">Plan your trip</div>
         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-            @foreach($destinasi as $destination)
-            <a href="{{ route('destinasi.showDetail', $destination->id_destinasi) }}" class="">
+            @foreach($destinasiPura as $destination)
+            <a href="{{ route('destinasi.showDetailPura', $destination->id_destinasi) }}" class="">
                 <div class="relative cursor-pointer group overflow-hidden">
                     <div class="overflow-hidden rounded-lg">
 

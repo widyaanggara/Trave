@@ -43,8 +43,32 @@ Route::prefix('destinasi')->group(function () {
     Route::delete('/{id_destinasi}', [DestinasiController::class, 'destroy'])->name('destinasi.destroy'); // Delete a destinasi
     Route::get('/{id_destinasi}', [DestinasiController::class, 'show'])->name('destinasi.show');  // Show a specific destinasi
     // Route::get('/kategori-destination', [DestinasiController::class, 'showKategoriDestination'])->name('destinasi.showKategoriDestination');
-
 });
+
+// Percobaan Kategori
+// Untuk kategori pura
+Route::get('/kategori-pura', [DestinasiController::class, 'showDestinationsPura'])->name('kategori.pura');
+Route::get('/kategori-pura/{id_destinasi}', [DestinasiController::class, 'showDetailPura'])->name('destinasi.showDetailPura');
+
+// Untuk kategori pantai
+Route::get('/kategori-pantai', [DestinasiController::class, 'showDestinationsPantai'])->name('kategori.pantai');
+Route::get('/kategori-pantai/{id_destinasi}', [DestinasiController::class, 'showDetailPantai'])->name('destinasi.showDetailPantai');
+
+// Untuk kategori artmarket
+Route::get('/kategori-artmarket', [DestinasiController::class, 'showDestinationsArtmarket'])->name('kategori.artmarket');
+Route::get('/kategori-artmarket/{id_destinasi}', [DestinasiController::class, 'showDetailArtmarket'])->name('destinasi.showDetailArtmarket');
+
+// Untuk kategori alam
+Route::get('/kategori-alam', [DestinasiController::class, 'showDestinationsAlam'])->name('kategori.alam');
+Route::get('/kategori-alam/{id_destinasi}', [DestinasiController::class, 'showDetailAlam'])->name('destinasi.showDetailAlam');
+
+// Untuk kategori snorkeling
+Route::get('/kategori-snorkeling', [DestinasiController::class, 'showDestinationsSnorkeling'])->name('kategori.snorkeling');
+Route::get('/kategori-snorkeling/{id_destinasi}', [DestinasiController::class, 'showDetailSnorkeling'])->name('destinasi.showDetailSnorkeling');
+
+
+// End percobaan
+
 
 require __DIR__.'/auth.php';
 
@@ -63,8 +87,9 @@ Route::get('/payment-success', function () {
 Route::get('/detail', function () {
     return view('pages.detail');
 });
-Route::get('/kategori-pura', [DestinasiController::class, 'showDestinations']);
-Route::get('/kategori-pura/{id_destinasi}', [DestinasiController::class, 'showDetail'])->name('destinasi.showDetail');
+
+// Route::get('/kategori-pura', [DestinasiController::class, 'showDestinations']);
+// Route::get('/kategori-pura/{id_destinasi}', [DestinasiController::class, 'showDetail'])->name('destinasi.showDetail');
 
 Route::post('/profile', [ProfileController::class, 'update'])->name('account.update');
 

@@ -1,3 +1,10 @@
+<?php $destination = $destinasiPura ?? $destinasiPantai ?? $destinasiArtmarket ?? $destinasiAlam ?? $destinasiSnorkeling ?? null;
+
+if (!$destination) {
+    abort(404, 'Destination not found.');
+}
+?>
+
 <!doctype html>
 <html>
 <head>
@@ -15,8 +22,6 @@
 <body>
 
     <x-navbar />
-
-
 
     <section class="w-[90%] max-w-[1200px] mx-auto flex flex-col">
         <div class="mt-24 font-bold text-[28px]">{{ $destination->nama_destinasi }}</div>
@@ -41,22 +46,20 @@
         <div class="grid md:grid-cols-[64%_36%] gap-1 mt-8">
             <!-- Left Column (64%) -->
             <div class="object-cover h-full">
-                <img src="{{ Storage::url($destination->thumbnail) }}" alt="" class="h-full w-full rounded-md md:rounded-l-md md:rounded-r-none object-cover">
+                <img src="{{ Storage::url($destination->galeri_1) }}" alt="" class="h-full w-full rounded-md md:rounded-l-md md:rounded-r-none object-cover">
             </div>
 
             <!-- Right Column (36%) with Two Rows -->
             <div class="hidden md:grid grid-rows-2 gap-1 h-full">
                 <div class="h-full">
-                    <img src="{{ Storage::url($destination->galeri_1) }}" alt="" class="w-full h-full md:rounded-l-none md:rounded-tr-md object-cover">
+                    <img src="{{ Storage::url($destination->galeri_2) }}" alt="" class="w-full h-full md:rounded-l-none md:rounded-tr-md object-cover">
                 </div>
                 <div class="h-full">
-                    <img src="{{ Storage::url($destination->galeri_2) }}" alt="" class="w-full h-full md:rounded-l-none md:rounded-br-md object-cover">
+                    <img src="{{ Storage::url($destination->galeri_3) }}" alt="" class="w-full h-full md:rounded-l-none md:rounded-br-md object-cover">
                 </div>
             </div>
         </div>
     </section>
-
-
 
     <section class="w-[90%] max-w-[1200px] mx-auto mt-10 mb-10">
         <div class="grid lg:grid-cols-[7fr_5fr] gap-10">

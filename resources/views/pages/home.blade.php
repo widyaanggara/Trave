@@ -92,7 +92,7 @@
         <div class="carousel relative">
             <div class="swiper explore-slider overflow-hidden">
                 <div class="swiper-wrapper">
-                    <a href="" class="swiper-slide rounded relative shadow-lg cursor-pointer group overflow-hidden">
+                    <a href="{{ route('kategori.pantai') }}" class="swiper-slide rounded relative shadow-lg cursor-pointer group overflow-hidden">
                         <img src="{{ asset('images/pantai.jpg') }}" alt="Background Image" class="w-full h-full object-cover rounded transition-transform duration-300 transform group-hover:scale-105">
                         <div class="absolute w-full bottom-0">
                             <div class="bg-gradient-to-t from-[#000000c0] to-transparent px-5 pt-20 pb-5 text-white text-2xl font-bold rounded">
@@ -101,7 +101,7 @@
                         </div>
                     </a>
 
-                    <a href="/kategori-pura" class="swiper-slide rounded relative shadow-lg cursor-pointer group overflow-hidden">
+                    <a href="{{ route('kategori.pura') }}" class="swiper-slide rounded relative shadow-lg cursor-pointer group overflow-hidden">
                         <img src="{{ asset('images/pura-lempuyang.jpg') }}" alt="Background Image" class="w-full h-full object-cover rounded transition-transform duration-300 transform group-hover:scale-105">
                         <div class="absolute w-full bottom-0">
                             <div class="bg-gradient-to-t from-[#000000c0] to-transparent px-5 pt-20 pb-5 text-white text-2xl font-bold rounded">
@@ -110,7 +110,7 @@
                         </div>
                     </a>
 
-                    <a href="" class="swiper-slide rounded relative shadow-lg cursor-pointer group overflow-hidden">
+                    <a href="{{ route('kategori.artmarket') }}" class="swiper-slide rounded relative shadow-lg cursor-pointer group overflow-hidden">
                         <img src="{{ asset('images/ubud-art-market.jpg') }}" alt="Background Image" class="w-full h-full object-cover rounded transition-transform duration-300 transform group-hover:scale-105">
                         <div class="absolute w-full bottom-0">
                             <div class="bg-gradient-to-t from-[#000000c0] to-transparent px-5 pt-20 pb-5 text-white text-2xl font-bold rounded">
@@ -119,7 +119,7 @@
                         </div>
                     </a>
 
-                    <a href="" class="swiper-slide rounded relative shadow-lg cursor-pointer group overflow-hidden">
+                    <a href="{{ route('kategori.alam') }}" class="swiper-slide rounded relative shadow-lg cursor-pointer group overflow-hidden">
                         <img src="{{ asset('images/Kanto-Lampo-waterfall.jpg') }}" alt="Background Image" class="w-full h-full object-cover rounded transition-transform duration-300 transform group-hover:scale-105">
                         <div class="absolute w-full bottom-0">
                             <div class="bg-gradient-to-t from-[#000000c0] to-transparent px-5 pt-20 pb-5 text-white text-2xl font-bold rounded">
@@ -128,7 +128,7 @@
                         </div>
                     </a>
 
-                    <a href="" class="swiper-slide rounded relative shadow-lg cursor-pointer group overflow-hidden">
+                    <a href="{{ route('kategori.snorkeling') }}" class="swiper-slide rounded relative shadow-lg cursor-pointer group overflow-hidden">
                         <img src="{{ asset('images/snorkel_tulamben_bali_diving.jpg') }}" alt="Background Image" class="w-full h-full object-cover rounded transition-transform duration-300 transform group-hover:scale-105">
                         <div class="absolute w-full bottom-0">
                             <div class="bg-gradient-to-t from-[#000000c0] to-transparent px-5 pt-20 pb-5 text-white text-2xl font-bold rounded">

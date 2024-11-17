@@ -23,7 +23,7 @@
         <div class="w-full mt-8">
             <div class="grid grid-cols-1 md:grid-cols-[75%,1fr] lg:grid-cols-[57%,1fr] gap-4">
                 <div class="">
-                    <div class="font-bold text-4xl">Pesona Pasar Seni</div>
+                    <div class="font-bold text-4xl">Pesona Wisata Bahari</div>
                     <div class="mt-4">Pasar seni adalah tempat di mana kreativitas dan budaya Bali berpadu, menghadirkan pengalaman berbelanja yang autentik dan penuh warna. Dalam kategori ini, Anda akan menemukan beragam pasar seni yang menawarkan berbagai kerajinan tangan, lukisan, patung, tekstil, dan suvenir khas Bali. Setiap pasar memiliki keunikan tersendiri, mulai dari suasana tradisional yang hangat hingga koleksi barang seni yang memukau. Berbelanja di pasar seni bukan hanya sekadar membeli, tetapi juga sebuah perjalanan mengenal jiwa seni dan warisan budaya Bali. Jelajahi kategori Pasar Seni untuk menemukan karya-karya unik yang membawa keindahan dan cerita Bali ke dalam hidup Anda.</div>
                 </div>
                 <div class=""></div>
@@ -34,8 +34,8 @@
     <section class="w-[90%] max-w-[1200px] mx-auto mt-14 mb-10">
         <div class="font-bold text-2xl mb-4">Plan your trip</div>
         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-            @foreach($destinasi as $destination)
-            <a href="{{ route('destinasi.showDetail', $destination->id_destinasi) }}" class="">
+            @foreach($destinasiSnorkeling as $destination)
+            <a href="{{ route('destinasi.showDetailSnorkeling', $destination->id_destinasi) }}" class="">
                 <div class="relative cursor-pointer group overflow-hidden">
                     <div class="overflow-hidden rounded-lg">
 

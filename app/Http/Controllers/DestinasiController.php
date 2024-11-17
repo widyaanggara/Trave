@@ -133,7 +133,7 @@ class DestinasiController extends Controller
         $destinasi = Destinasi::findOrFail($id_destinasi);
 
         // Kirim data ke view edit
-        return view('admin.edit-destinasi', compact('destination'));
+        return view('admin.edit-destinasi', compact('destinasi'));
     }
 
     /**
@@ -233,5 +233,76 @@ public function update(Request $request, $id_destinasi)
         // Redirect ke halaman destinasi dengan pesan sukses
         return redirect()->route('destinasi.index')->with('success', 'Destinasi berhasil dihapus!');
     }
+
+
+    // Untuk kategori pura
+    public function showDestinationsPura()
+    {
+        $destinasiPura = Destinasi::where('kategori', 'Pura')->get();
+        return view('pages.kategori-pura', compact('destinasiPura'));
+    }
+
+    public function showDetailPura($id_destinasi)
+    {
+        $destinasiPura = Destinasi::findOrFail($id_destinasi);
+        return view('pages.detail', compact('destinasiPura'));  // Mengarahkan ke view 'pages.detail'
+    }
+
+    // Untuk kategori pantai
+    public function showDestinationsPantai()
+    {
+        $destinasiPantai = Destinasi::where('kategori', 'Pantai')->get();
+        return view('pages.kategori-pantai', compact('destinasiPantai'));
+    }
+
+    public function showDetailPantai($id_destinasi)
+    {
+        $destinasiPantai = Destinasi::findOrFail($id_destinasi);
+        return view('pages.detail', compact('destinasiPantai'));  // Mengarahkan ke view 'pages.detail'
+    }
+
+    // Untuk kategori artmarket
+    public function showDestinationsArtmarket()
+    {
+        $destinasiArtmarket = Destinasi::where('kategori', 'Art Market')->get();
+        return view('pages.kategori-artmarket', compact('destinasiArtmarket'));
+    }
+
+    public function showDetailArtmarket($id_destinasi)
+    {
+        $destinasiArtmarket = Destinasi::findOrFail($id_destinasi);
+        return view('pages.detail', compact('destinasiArtmarket'));  // Mengarahkan ke view 'pages.detail'
+    }
+
+    // Untuk kategori alam
+    public function showDestinationsAlam()
+    {
+        $destinasiAlam = Destinasi::where('kategori', 'Alam')->get();
+        return view('pages.kategori-alam', compact('destinasiAlam'));
+    }
+
+    public function showDetailAlam($id_destinasi)
+    {
+        $destinasiAlam = Destinasi::findOrFail($id_destinasi);
+        return view('pages.detail', compact('destinasiAlam'));  // Mengarahkan ke view 'pages.detail'
+    }
+
+    // Untuk kategori snorkeling
+    public function showDestinationsSnorkeling()
+    {
+        $destinasiSnorkeling = Destinasi::where('kategori', 'Snorkeling')->get();
+        return view('pages.kategori-snorkeling', compact('destinasiSnorkeling'));
+    }
+
+    public function showDetailSnorkeling($id_destinasi)
+    {
+        $destinasiSnorkeling = Destinasi::findOrFail($id_destinasi);
+        return view('pages.detail', compact('destinasiSnorkeling'));  // Mengarahkan ke view 'pages.detail'
+    }
+
+    
+
+    // End
+
 
 }
