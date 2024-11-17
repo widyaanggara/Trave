@@ -1,4 +1,4 @@
-<?php $destination = $destinasiPura ?? $destinasiPantai ?? $destinasiArtmarket ?? $destinasiAlam ?? $destinasiSnorkeling ?? null;
+<?php $destination = $destinasiPura ?? $destinasiPantai ?? $destinasiArtmarket ?? $destinasiAlam ?? $destinasiSnorkeling ?? $destinasi ?? null;
 
 if (!$destination) {
     abort(404, 'Destination not found.');

@@ -136,9 +136,9 @@ Route::get('/payment-success', function () {
     return view('pages.payment-success');
 });
 
-Route::get('/detail', function () {
-    return view('pages.detail');
-});
+// Route::get('/detail', function () {
+//     return view('pages.detail');
+// });
 
 // Route::get('/kategori-pura', [DestinasiController::class, 'showDestinations']);
 // Route::get('/kategori-pura/{id_destinasi}', [DestinasiController::class, 'showDetail'])->name('destinasi.showDetail');

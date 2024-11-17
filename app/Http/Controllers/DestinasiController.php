@@ -48,10 +48,10 @@ class DestinasiController extends Controller
     public function showDetail($id_destinasi)
     {
         // Fetch destinasi berdasarkan ID
-        $destination = Destinasi::findOrFail($id_destinasi);
+        $destinasi = Destinasi::findOrFail($id_destinasi);
 
         // Pass destinasi ke view
-        return view('pages.detail', compact('destination'));
+        return view('pages.detail', compact('destinasi'));
     }
 
 
