@@ -133,89 +133,89 @@ if (!$destination) {
                 </div>
             </div>
 
-
+            <!-- Form pembayaran -->
             <div class="order-1 lg:order-2 lg:sticky top-20 self-start border p-4 rounded-lg shadow-lg">
-                <div class="font-bold text-2xl">From IDR {{ number_format($destination->harga_dewasa_nonpaket, 0, ',', '.') }}</div>
-                <div class="text-gray-800">Per adult (price varies by group size)</div>
-                <div class="mt-4 font-semibold text-base">Select date</div>
-                <div class="flex flex-col items-start gap-2 mt-3">
-                    <div class=" relative" id="date">
-                        <input type="date" id="datePicker" class="border border-gray-300 h-14 w-44 flex justify-center items-center rounded-full cursor-pointer focus:border-gray-500">
-                    </div>
-                    <div class="">
-                        <label for="time" class="block font-medium mb-1">Pilih Waktu:</label>
-                        <input type="time" id="time" name="time" class="border border-gray-300 rounded-lg p-2 text-gray-700 focus:outline-none focus:ring-2 focus:ring-transparent focus:border-gray-500 cursor-pointer">
-                    </div>
+                <!-- Form pemesanan -->
+                <form action="{{ route('pemesanant.store') }}" method="POST">
+                    @csrf <!-- Token CSRF untuk keamanan -->
+                    <div class="font-bold text-2xl">From IDR {{ number_format($destination->harga_dewasa_nonpaket, 0, ',', '.') }}</div>
+                    <div class="text-gray-800">Per adult (price varies by group size)</div>
+                    
+                    <!-- Hidden inputs untuk default values -->
+                    <input type="hidden" name="date_order" value="{{ now()->toDateString() }}">
+                    <input type="hidden" name="status" value="waiting">
+                    <input type="hidden" name="destinasi_id" value="{{ $destination->id_destinasi }}">
+                    <input type="hidden" name="user_id" value="{{ auth()->user()->id }}">
 
-                    {{-- Jumlah Travelers  --}}
-                    <div class="mt-2 font-semibold text-base">Select travellers</div>
-                    <div class="grid sm:grid-cols-[6fr_6fr] gap-4 w-full">
-                        <div class="w-full">
-                            <label for="dewasa">Adult</label>
-                            <input type="number" id="dewasa" name="dewasa" class="border border-gray-300 w-full rounded-lg py-1 px-3 mt-1 text-gray-800">
+                    <div class="mt-4 font-semibold text-base">Select date</div>
+                    <div class="flex flex-col items-start gap-2 mt-3">
+                        <div class="relative" id="date">
+                            <input type="date" id="datePicker" name="date_travel" class="border border-gray-300 h-14 w-44 flex justify-center items-center rounded-full cursor-pointer focus:border-gray-500" required>
                         </div>
-                        <div class="w-full">
-                            <label for="children">Children</label>
-                            <input type="number" id="children" name="children" class="border border-gray-300 w-full rounded-lg py-1 px-3 mt-1 text-gray-800">
+                        <div>
+                            <label for="time" class="block font-medium mb-1">Pilih Waktu:</label>
+                            <input type="time" id="time" name="time_travel" class="border border-gray-300 rounded-lg p-2 text-gray-700 focus:outline-none focus:ring-2 focus:ring-transparent focus:border-gray-500 cursor-pointer" required>
+                        </div>
+
+                        <!-- Jumlah Travelers -->
+                        <div class="mt-2 font-semibold text-base">Select travellers</div>
+                        <div class="grid sm:grid-cols-[6fr_6fr] gap-4 w-full">
+                            <div class="w-full">
+                                <label for="dewasa">Adult</label>
+                                <input type="number" id="dewasa" name="jumlah_dewasa" class="border border-gray-300 w-full rounded-lg py-1 px-3 mt-1 text-gray-800" min="0" required>
+                            </div>
+                            <div class="w-full">
+                                <label for="children">Children</label>
+                                <input type="number" id="children" name="jumlah_anak" class="border border-gray-300 w-full rounded-lg py-1 px-3 mt-1 text-gray-800" min="0" required>
+                            </div>
                         </div>
                     </div>
 
-                </div>
-
-                {{-- Paket --}}
-                <div class="mt-8">
-                    <div class="mb-2 font-semibold text-lg">Pilih Paket</div>
-                    {{-- pilihan 1 --}}
-                    <div class="relative border-2 rounded-xl border-gray-300 transition duration-300 ease-in-out" id="package-card-1">
-                        <input type="radio" name="packages" value="withguide" id="withguide" class="hidden peer" />
-                        <label for="withguide" class="w-full block cursor-pointer p-4">
-                            <div class="font-semibold text-lg">Tour Dengan Guide</div>
-                            <div class="bg-black inline-block text-white px-2 py-1 rounded-[4px] mt-1 font-semibold text-sm">Populer*</div>
-                            <div class="mt-2">
-                                <div class="text-sm">{{ $destination->nama_destinasi }}</div>
-                                <div class="text-sm">Duration: {{ $destination->duration }}</div>
-                                <div class="text-sm">Include Guide</div>
-                                <div class="text-sm">Location: {{ $destination->alamat }}</div>
-                            </div>
-                            <div class="mt-3">
-                                <div class="text-sm">Harga Dewasa : IDR <span>{{ number_format($destination->harga_dewasa_paket, 0, ',', '.') }}</span></div>
-                                <div class="text-sm">Harga Anak-anak : IDR <span>{{ number_format($destination->harga_anak_paket, 0, ',', '.') }}</span></div>
-                            </div>
-                            <div class="mt-2 text-xs text-gray-700">*Harga termasuk pajak.</div>
-                            <div class="mt-1 text-xs text-gray-700">*Pilihan populer berdasarkan jumlah pemesanan di situs Trave selama 60 hari terakhir.</div>
-                        </label>
-
-                        <span class="absolute right-4 top-4 rounded-full border-2 border-gray-500 bg-transparent transition duration-300 cursor-pointer" id="outer-circle-1">
-                            <span class="bg-black rounded-full" id="inner-dot-1" style="visibility: hidden;"></span>
-                        </span>
+                    <!-- Paket -->
+                    <div class="mt-8">
+                        <div class="mb-2 font-semibold text-lg">Pilih Paket</div>
+                        {{-- pilihan 1 --}}
+                        <div class="relative border-2 rounded-xl border-gray-300 transition duration-300 ease-in-out" id="package-card-1">
+                            <input type="radio" name="paket" value="guide" id="withguide" class="hidden peer" required>
+                            <label for="withguide" class="w-full block cursor-pointer p-4">
+                                <div class="font-semibold text-lg">Tour Dengan Guide</div>
+                                <div class="bg-black inline-block text-white px-2 py-1 rounded-[4px] mt-1 font-semibold text-sm">Populer*</div>
+                                <div class="mt-2">
+                                    <div class="text-sm">{{ $destination->nama_destinasi }}</div>
+                                    <div class="text-sm">Duration: {{ $destination->duration }}</div>
+                                    <div class="text-sm">Include Guide</div>
+                                    <div class="text-sm">Location: {{ $destination->alamat }}</div>
+                                </div>
+                                <div class="mt-3">
+                                    <div class="text-sm">Harga Dewasa : IDR <span>{{ number_format($destination->harga_dewasa_paket, 0, ',', '.') }}</span></div>
+                                    <div class="text-sm">Harga Anak-anak : IDR <span>{{ number_format($destination->harga_anak_paket, 0, ',', '.') }}</span></div>
+                                </div>
+                            </label>
+                        </div>
+                        
+                        {{-- pilihan 2 --}}
+                        <div class="mt-3 relative border-2 rounded-xl border-gray-300 transition duration-300 ease-in-out" id="package-card-2">
+                            <input type="radio" name="paket" value="nonguide" id="withoutguide" class="hidden peer">
+                            <label for="withoutguide" class="w-full block cursor-pointer p-4">
+                                <div class="font-semibold text-lg">Tour Tanpa Guide</div>
+                                <div class="mt-1">
+                                    <div class="text-sm">{{ $destination->nama_destinasi }}</div>
+                                    <div class="text-sm">Duration: {{ $destination->duration }}</div>
+                                    <div class="text-sm">Not Include Guide</div>
+                                    <div class="text-sm">Location: {{ $destination->alamat }}</div>
+                                </div>
+                                <div class="mt-3">
+                                    <div class="text-sm">Harga Dewasa : IDR <span>{{ number_format($destination->harga_dewasa_nonpaket, 0, ',', '.') }}</span></div>
+                                    <div class="text-sm">Harga Anak-anak : IDR <span>{{ number_format($destination->harga_anak_nonpaket, 0, ',', '.') }}</span></div>
+                                </div>
+                            </label>
+                        </div>
                     </div>
 
-                    {{-- pilihan 2 --}}
-                    <div class="mt-3 relative border-2 rounded-xl border-gray-300 transition duration-300 ease-in-out" id="package-card-2">
-                        <input type="radio" name="packages" value="withoutguide" id="withguide" class="hidden peer" />
-                        <label for="withoutguide" class="w-full block cursor-pointer p-4">
-                            <div class="font-semibold text-lg">Tour Tanpa Guide</div>
-                            <div class="mt-1">
-                                <div class="text-sm">{{ $destination->nama_destinasi }}</div>
-                                <div class="text-sm">Duration: {{ $destination->duration }}</div>
-                                <div class="text-sm">Not Include Guide</div>
-
-                                <div class="text-sm">Location: {{ $destination->alamat }}</div>
-                            </div>
-                            <div class="mt-3">
-                                <div class="text-sm">Harga Dewasa : IDR <span>{{ number_format($destination->harga_dewasa_nonpaket, 0, ',', '.') }}</span></div>
-                                <div class="text-sm">Harga Anak-anak : IDR <span>{{ number_format($destination->harga_anak_nonpaket, 0, ',', '.') }}</span></div>
-                            </div>
-                            <div class="mt-2 text-xs text-gray-700">*Harga termasuk pajak.</div>
-                        </label>
-
-                        <span class="absolute right-4 top-4 rounded-full border-2 border-gray-500 bg-transparent transition duration-300 cursor-pointer" id="outer-circle-2">
-                            <span class="bg-black rounded-full" id="inner-dot-2" style="visibility: hidden;"></span>
-                        </span>
-                    </div>
-                </div>
-
-                <div class="bg-orange-500 hover:bg-orange-400 flex justify-center items-center py-3 mt-4 rounded-full cursor-pointer text-white transition-colors duration-200">Booking Now</div>
+                    <button type="submit" class="bg-orange-500 hover:bg-orange-400 flex justify-center items-center py-3 mt-4 rounded-full cursor-pointer text-white transition-colors duration-200">
+                        Booking Now
+                    </button>
+                </form>
 
             </div>
         </div>
