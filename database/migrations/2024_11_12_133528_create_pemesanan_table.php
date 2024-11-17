@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('pemesanan', function (Blueprint $table) {
             $table->increments('id_pemesanan'); // Primary Key, Auto Increment
-            $table->unsignedInteger('customer_id'); // FK ke customer
+            $table->unsignedBigInteger('user_id'); // FK ke customer
             $table->unsignedBigInteger('destinasi_id'); // FK ke destinasi
             $table->date('date_order');
             $table->integer('jumlah_pax', false, true); // unsigned
@@ -23,7 +23,7 @@ return new class extends Migration
             $table->timestamps();
 
             // Menambahkan Foreign Key
-            $table->foreign('customer_id')->references('id_user')->on('customer')->onDelete('cascade');
+            $table->foreign('user_id')->references('id')->on('users');
             $table->foreign('destinasi_id')->references('id_destinasi')->on('destinasi')->onDelete('cascade');
         });
     }

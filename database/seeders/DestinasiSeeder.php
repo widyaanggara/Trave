@@ -18,7 +18,7 @@ class DestinasiSeeder extends Seeder
                 'galeri_1' => 'galeri1_' . $i . '.jpg',
                 'galeri_2' => 'galeri2_' . $i . '.jpg',
                 'galeri_3' => 'galeri3_' . $i . '.jpg',
-                'nama_kategori' => DB::table('kategori')->inRandomOrder()->first()->id_kategori,
+                'kategori' => 'Pura ' . $i,
                 'sub_judul' => 'Sub judul destinasi ' . $i,
                 'duration' => rand(1, 5) . 'h',
                 'harga_dewasa_paket' => rand(100000, 500000),

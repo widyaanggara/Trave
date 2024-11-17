@@ -21,7 +21,7 @@
                 <span class="text-lg font-semibold text-purple-600">Dashboard</span>
             </div>
             <nav class="mt-4 space-y-1">
-                <a href="/admin" class="flex items-center px-6 py-3  font-semibold  {{ request()->is('/admin') ? 'text-purple-600' : '' }}">
+                <a href="{{ route('dashboard') }}" class="flex items-center px-6 py-3  font-semibold  {{ request()->is('/admin') ? 'text-purple-600' : '' }}">
                     <svg class="w-5 h-5 mr-3" fill="currentColor" viewBox="0 0 20 20">
                         <path d="M4 4h5v12H4zM11 8h5v8h-5zM11 4h5v3h-5z"></path>
                     </svg>

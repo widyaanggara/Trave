@@ -11,7 +11,7 @@ class PemesananSeeder extends Seeder
         for ($i = 1; $i <= 10; $i++) {
             DB::table('pemesanan')->insert([
                 'id_pemesanan' => Str::uuid()->toString(),
-                'id_user' => DB::table('customer')->inRandomOrder()->first()->id_user,
+                'id_user' => DB::table('user')->inRandomOrder()->first()->id_user,
                 'date_order' => now()->subDays(rand(1, 30)),
                 'nama_destinasi' => DB::table('destinasi')->inRandomOrder()->first()->id_destinasi,
                 'jumlah_pax' => rand(1, 10),

@@ -7,9 +7,9 @@ namespace Database\Seeders;
 
 use App\Models\User;
 use Illuminate\Database\Seeder;
-use ReviewSeeder;
-use CustomerSeeder;
-use KategoriSeeder;
+// use ReviewSeeder;
+// use CustomerSeeder;
+// use KategoriSeeder;
 use DestinasiSeeder;
 use PemesananSeeder;
 
@@ -21,10 +21,10 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         $this->call([
-            KategoriSeeder::class,
+            // KategoriSeeder::class,
             DestinasiSeeder::class,
-            CustomerSeeder::class,
-            ReviewSeeder::class,
+            // CustomerSeeder::class,
+            // ReviewSeeder::class,
             PemesananSeeder::class,
         ]);
     }
