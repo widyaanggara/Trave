@@ -112,6 +112,10 @@ Route::get('/kategori-alam/{id_destinasi}', [DestinasiController::class, 'showDe
 Route::get('/kategori-snorkeling', [DestinasiController::class, 'showDestinationsSnorkeling'])->name('kategori.snorkeling');
 Route::get('/kategori-snorkeling/{id_destinasi}', [DestinasiController::class, 'showDetailSnorkeling'])->name('destinasi.showDetailSnorkeling');
 
+Route::get('/detail/{id_destinasi}', [DestinasiController::class, 'showDetail'])->name('destinasi.showDetail');
+
+
+
 
 // End percobaan
 

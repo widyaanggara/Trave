@@ -43,6 +43,11 @@ buttons.forEach(button => {
     });
 });
 
+// Coba
+
+// Coba end
+
+
 // Slider untuk Explore Beautiful Bali
 const exploreSwiper = new Swiper('.explore-slider', {
     direction: 'horizontal',

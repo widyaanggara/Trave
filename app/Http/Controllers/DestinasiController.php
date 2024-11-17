@@ -240,7 +240,6 @@ public function update(Request $request, $id_destinasi)
         return redirect()->route('destinasi.index')->with('success', 'Destinasi berhasil dihapus!');
     }
 
-
     
 
     // Untuk kategori pura

@@ -45,10 +45,9 @@
                 <img src="{{ asset('images/bahari.png') }}" class="w-8" alt="">
                 <p class="ml-[5px]">Wisata Bahari</p>
             </button>
-
         </div>
 
-        <div class="flex flex-col md:flex-row justify-center items-center max-w-[50rem] w-full shadow-md bg-white py-1 pb-5 md:pb-0 px-4 pl-6 rounded-xl md:rounded-full">
+        <div class="flex flex-col border md:flex-row justify-center items-center max-w-[50rem] w-full shadow-md bg-white py-1 pb-5 md:pb-0 px-4 pl-6 rounded-xl md:rounded-full">
             <div class="flex items-center w-full mb-2 md:mb-1">
                 <span class="material-symbols-outlined left-3 cursor-pointer">search</span>
                 <input type="text" class="w-full p-4 bg-transparent rounded-full focus:outline-none " placeholder="Temukan objek wisata anda...">
@@ -57,6 +56,8 @@
                 Search
             </button>
         </div>
+
+        
     </section>
 
     {{-- Banner section --}}
@@ -155,7 +156,7 @@
             <div class="swiper recently-viewed-slider overflow-hidden">
                 <div class="swiper-wrapper">
                     @foreach($destinasi as $destination)
-                    <a href="" class="swiper-slide rounded relative cursor-pointer group overflow-hidden">
+                    <a href="{{ route('destinasi.showDetail', $destination->id_destinasi) }}" class="swiper-slide rounded relative cursor-pointer group overflow-hidden">
                         <div class="overflow-hidden rounded">
                             <img src="{{ $destination->thumbnail ? Storage::url($destination->thumbnail)  : 'https://via.placeholder.com/400' }}" alt="{{ $destination->nama_destinasi }}" class="w-full h-full object-cover transition-transform duration-300 transform group-hover:scale-105">
                         </div>
@@ -275,6 +276,8 @@
 
 
     @vite('resources/js/home.js')
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 </body>
 </html>
