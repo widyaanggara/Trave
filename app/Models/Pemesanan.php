@@ -7,6 +7,20 @@ use Illuminate\Database\Eloquent\Model;
 
 class Pemesanan extends Model
 {
-    /** @use HasFactory<\Database\Factories\PemesananFactory> */
     use HasFactory;
+
+    protected $table = 'pemesanan';
+    protected $primaryKey = 'id_pemesanan';
+    protected $fillable = [
+        'user_id',
+        'destinasi_id',
+        'date_order',
+        'date_travel',
+        'time_travel',
+        'jumlah_dewasa',
+        'jumlah_anak',
+        'jumlah_pembayaran',
+        'paket',
+        'status',
+    ];
 }

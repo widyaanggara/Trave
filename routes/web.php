@@ -117,6 +117,10 @@ Route::get('/detail/{id_destinasi}', [DestinasiController::class, 'showDetail'])
 
 
 
+
+// Simpan data pemesanan dari detail
+Route::post('/pemesanan/store', [PemesanantController::class, 'store'])->name('pemesanant.store');
+
 // End percobaan
 
 
@@ -126,9 +130,7 @@ require __DIR__.'/auth.php';
 //     return view('pages.kategori-destination');
 // });
 
-Route::get('/payment', function () {
-    return view('pages.payment');
-});
+Route::get('/pemesanan/payment', [PemesanantController::class, 'payment'])->name('pemesanant.payment');
 
 Route::get('/payment-success', function () {
     return view('pages.payment-success');
