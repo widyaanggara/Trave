@@ -207,7 +207,7 @@ if (!$destination) {
 
                     {{-- Jumlah Travelers  --}}
                     <div class="mt-4 font-semibold text-base">Select travellers</div>
-                    <div class="grid sm:grid-cols-[6fr_6fr] gap-4 w-full " >
+                    <div class="grid sm:grid-cols-[6fr_6fr] gap-4 w-full">
                         <div class="w-full">
                             <label for="dewasa">Adult</label>
                             <input type="number" id="dewasa" name="dewasa" class="border border-gray-300 w-full rounded-lg py-1 px-3 mt-1 text-gray-800">
