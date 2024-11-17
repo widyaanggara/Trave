@@ -212,9 +212,10 @@ if (!$destination) {
                         </div>
                     </div>
 
-                    <button type="submit" class="bg-orange-500 hover:bg-orange-400 flex justify-center items-center py-3 mt-4 rounded-full cursor-pointer text-white transition-colors duration-200">
+                    <button type="submit" class="bg-orange-500 hover:bg-orange-400 flex justify-center items-center py-3 px-5 mt-4 rounded-full cursor-pointer text-white transition-colors duration-200 w-full">
                         Booking Now
                     </button>
+                    
                 </form>
 
             </div>

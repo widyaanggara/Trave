@@ -55,23 +55,25 @@ accordionHeaders.forEach(accordionHeader => {
 
 
 // DOT
-const radioButtons = document.querySelectorAll('input[name="packages"]');
-const cards = [document.getElementById('package-card-1'), document.getElementById('package-card-2')];
-const dots = [document.getElementById('inner-dot-1'), document.getElementById('inner-dot-2')];
+document.addEventListener('DOMContentLoaded', () => {
+    const radioButtons = document.querySelectorAll('input[name="paket"]');
+    const cards = [document.getElementById('package-card-1'), document.getElementById('package-card-2')];
 
-cards.forEach((card, index) => {
-    card.addEventListener('click', function () {
-        radioButtons[index].checked = true;
+    cards.forEach((card, index) => {
+        card.addEventListener('click', function () {
+            radioButtons[index].checked = true;
 
-        cards.forEach((c, i) => {
-            c.classList.replace('border-gray-800', 'border-gray-300');
-            dots[i].style.visibility = 'hidden';
+            cards.forEach((c) => {
+                // Reset the border color to gray for all cards
+                c.classList.replace('border-gray-800', 'border-gray-300');
+            });
+
+            // Apply the dark border color to the selected card
+            card.classList.replace('border-gray-300', 'border-gray-800');
         });
-
-        card.classList.replace('border-gray-300', 'border-gray-800');
-        dots[index].style.visibility = 'visible';
     });
 });
+
 
 
 // Slider untuk Recently Viewed
