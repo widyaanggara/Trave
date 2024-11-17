@@ -147,3 +147,10 @@ Route::post('/profile', [ProfileController::class, 'update'])->name('account.upd
 
 
 // Route::get('/profile', [ProfileController::class, 'show'])->middleware('auth');
+
+Route::middleware('auth')->group(function () {
+    Route::get('/akun', [ProfileController::class, 'indexadmin'])->name('admin.account'); // Define profile route here
+    Route::get('/akun/edit', [ProfileController::class, 'editadmin'])->name('admin.edit'); // Profile edit route
+    Route::post('/akun', [ProfileController::class, 'updateadmin'])->name('admin.update');
+    Route::delete('/akun', [ProfileController::class, 'destroyadmin'])->name('admin.destroy');
+});
