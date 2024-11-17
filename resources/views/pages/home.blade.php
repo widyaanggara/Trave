@@ -20,7 +20,7 @@
         <div class="mt-20 hidden md:block">
             <h1 id="title-text" class="text-4xl md:text-5xl font-bold mt-12 text-center">Ingin ke mana?</h1>
         </div>
-        <div class="option-btn mt-20 md:mt-8 mb-5 overflow-x-auto max-w-[54rem] w-full flex gap-2 justify-start lg:justify-center">
+        {{-- <div class="option-btn mt-20 md:mt-8 mb-5 overflow-x-auto max-w-[54rem] w-full flex gap-2 justify-start lg:justify-center">
             <button class="option flex-shrink-0 flex justify-center items-center py-1 mx-2 text-black border-b-2 border-transparent font-semibold text-lg hover:border-black transition-colors duration-200 active">
                 <img src="{{ asset('images/allsearch.png') }}" class="w-8" alt="">
                 <p class="ml-[5px]">Search All</p>
@@ -45,9 +45,9 @@
                 <img src="{{ asset('images/bahari.png') }}" class="w-8" alt="">
                 <p class="ml-[5px]">Wisata Bahari</p>
             </button>
-        </div>
+        </div> --}}
 
-        <div class="flex flex-col border md:flex-row justify-center items-center max-w-[50rem] w-full shadow-md bg-white py-1 pb-5 md:pb-0 px-4 pl-6 rounded-xl md:rounded-full">
+        <div class="flex flex-col border md:flex-row justify-center items-center max-w-[50rem] w-full shadow-md bg-white py-1 pb-5 md:pb-0 px-4 mt-10 pl-6 rounded-xl md:rounded-full">
             <div class="flex items-center w-full mb-2 md:mb-1">
                 <span class="material-symbols-outlined left-3 cursor-pointer">search</span>
                 <input type="text" class="w-full p-4 bg-transparent rounded-full focus:outline-none " placeholder="Temukan objek wisata anda...">
@@ -56,8 +56,6 @@
                 Search
             </button>
         </div>
-
-        
     </section>
 
     {{-- Banner section --}}

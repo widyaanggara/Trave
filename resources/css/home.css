@@ -38,6 +38,23 @@
     width: calc(50% - 6px); /* Atur lebar slide hanya untuk Recently Viewed */
 }
 
+/* COBA */
+#search-results {
+    z-index: 1000;
+    max-height: 300px;
+    overflow-y: auto;
+}
+#search-results a {
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+    color: black;
+}
+#search-results a:hover {
+    background-color: #f0f0f0;
+}
+
+
 
 @media screen and (max-width:768px){
     .banner{
