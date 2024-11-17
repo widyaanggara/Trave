@@ -16,7 +16,10 @@ return new class extends Migration
             $table->unsignedBigInteger('user_id'); // FK ke customer
             $table->unsignedBigInteger('destinasi_id'); // FK ke destinasi
             $table->date('date_order');
-            $table->integer('jumlah_pax', false, true); // unsigned
+            $table->integer('jumlah_dewasa', false, true); // Jumlah Dewasa
+            $table->integer('jumlah_anak', false, true);
+            $table->integer('jumlah_pembayaran', false, true);
+            $table->enum('paket', ['guide', 'nonguide']);
             $table->enum('status', ['confirmed', 'waiting', 'canceled']);
             $table->time('time_travel');
             $table->date('date_travel');
