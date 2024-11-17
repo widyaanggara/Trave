@@ -199,7 +199,7 @@
     </section>
 
     {{-- Banner --}}
-    <a href="/detail">
+    <a href="/detail/1">
         <section class="w-[90%] max-w-[1200px] mx-auto mt-24 mb-10 bg-[#f2ecf9] rounded-md cursor-pointer">
             <div class="flex lg:py-6 lg:px-4">
                 <div class="px-0 lg:px-10 mr-4 lg:mr-0">
@@ -225,7 +225,7 @@
             <div class="swiper explore-next-slider overflow-hidden">
                 <div class="swiper-wrapper">
                     @foreach($destinasi as $destination)
-                    <a href="/detail" class="swiper-slide rounded relative shadow-lg cursor-pointer group overflow-hidden">
+                    <a href="{{ route('destinasi.showDetail', $destination->id_destinasi) }}" class="swiper-slide rounded relative shadow-lg cursor-pointer group overflow-hidden">
                         <img src="{{ $destination->thumbnail ? Storage::url($destination->thumbnail)  : 'https://via.placeholder.com/400' }}" alt="{{ $destination->nama_destinasi }}" class="w-full h-full object-cover rounded transition-transform duration-300 transform group-hover:scale-105">
                         <div class="absolute w-full bottom-0">
                             <div class="bg-gradient-to-t from-[#000000c0] to-transparent px-5 pt-20 pb-5 text-white text-2xl font-bold rounded">

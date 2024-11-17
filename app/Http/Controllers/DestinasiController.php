@@ -45,10 +45,12 @@ class DestinasiController extends Controller
         // Pass the destinations to the view
         return view('pages.home', compact('destinasi'));
     }
+
     public function showDetail($id_destinasi)
     {
         // Fetch destinasi berdasarkan ID
         $destinasi = Destinasi::findOrFail($id_destinasi);
+        
 
         // Pass destinasi ke view
         return view('pages.detail', compact('destinasi'));
