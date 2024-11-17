@@ -23,4 +23,10 @@ class Pemesanan extends Model
         'paket',
         'status',
     ];
+
+    // Relasi ke model Destinasi
+    public function destinasi()
+    {
+        return $this->belongsTo(Destinasi::class, 'destinasi_id', 'id_destinasi');
+    }
 }

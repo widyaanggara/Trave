@@ -12,9 +12,11 @@ Route::get('/admin-acc', function () {
     return view('admin.account');
 });
 
-Route::get('/riwayat', function () {
-    return view('pages.riwayat-pembelian');
-})->name('riwayat');
+// Route::get('/riwayat', function () {
+//     return view('pages.riwayat-pembelian');
+// })->name('riwayat');
+
+Route::get('/riwayat', [PemesanantController::class, 'riwayatPembelian'])->name('riwayat');
 
 // Route::get('/', function () {
 //     return view('pages.home');
