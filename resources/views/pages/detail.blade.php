@@ -78,56 +78,56 @@ if (!$destination) {
                 <div class="faq-container">
                     <div class="py-5 border-b border-gray-300 cursor-pointer" id="faq1">
                         <div class="flex items-center justify-between group">
-                            <div class="font-medium  group-hover:underline">What's included</div>
+                            <div class="font-medium  group-hover:underline">Transportasi Nyaman</div>
                             <span class="material-symbols-outlined">keyboard_arrow_down</span>
                         </div>
                         <div class="accordion-body max-h-0 overflow-hidden transition-all duration-200 ease-out">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores modi atque quas recusandae deserunt dolorem tempore officia, repellat quos labore laborum fuga velit veniam nam repudiandae molestiae, optio odio ducimus!
+                            Nikmati perjalanan yang nyaman dengan transportasi ber-AC menuju dan dari destinasi Anda.
                         </div>
                     </div>
                     <div class="py-5 border-b border-gray-300 cursor-pointer" id="faq2">
                         <div class="flex items-center justify-between group">
-                            <div class="font-medium group-hover:underline">What's included</div>
+                            <div class="font-medium group-hover:underline">Akomodasi</div>
                             <span class="material-symbols-outlined">keyboard_arrow_down</span>
                         </div>
                         <div class="accordion-body max-h-0 overflow-hidden transition-all duration-200 ease-out">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores modi atque quas recusandae deserunt dolorem tempore officia, repellat quos labore laborum fuga velit veniam nam repudiandae molestiae, optio odio ducimus!
+                            Menginap di hotel-hotel yang telah dipilih dengan fasilitas yang baik.
                         </div>
                     </div>
                     <div class="py-5 border-b border-gray-300 cursor-pointer" id="faq3">
                         <div class="flex items-center justify-between group">
-                            <div class="font-medium group-hover:underline">What's included</div>
+                            <div class="font-medium group-hover:underline">Makanan</div>
                             <span class="material-symbols-outlined">keyboard_arrow_down</span>
                         </div>
                         <div class="accordion-body max-h-0 overflow-hidden transition-all duration-200 ease-out">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores modi atque quas recusandae deserunt dolorem tempore officia, repellat quos labore laborum fuga velit veniam nam repudiandae molestiae, optio odio ducimus!
+                            Semua makanan disediakan, termasuk sarapan, makan siang, dan makan malam di restoran atau hotel lokal.
                         </div>
                     </div>
                     <div class="py-5 border-b border-gray-300 cursor-pointer" id="faq4">
                         <div class="flex items-center justify-between group">
-                            <div class="font-medium group-hover:underline">What's included</div>
+                            <div class="font-medium group-hover:underline">Pemandu Wisata</div>
                             <span class="material-symbols-outlined">keyboard_arrow_down</span>
                         </div>
                         <div class="accordion-body max-h-0 overflow-hidden transition-all duration-200 ease-out">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores modi atque quas recusandae deserunt dolorem tempore officia, repellat quos labore laborum fuga velit veniam nam repudiandae molestiae, optio odio ducimus!
+                            Pemandu wisata profesional akan menemani Anda selama perjalanan, memastikan pengalaman yang informatif dan menyenangkan.
                         </div>
                     </div>
                     <div class="py-5 border-b border-gray-300 cursor-pointer" id="faq5">
                         <div class="flex items-center justify-between group">
-                            <div class="font-medium group-hover:underline">What's included</div>
+                            <div class="font-medium group-hover:underline">Aktivitas</div>
                             <span class="material-symbols-outlined">keyboard_arrow_down</span>
                         </div>
                         <div class="accordion-body max-h-0 overflow-hidden transition-all duration-200 ease-out">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores modi atque quas recusandae deserunt dolorem tempore officia, repellat quos labore laborum fuga velit veniam nam repudiandae molestiae, optio odio ducimus!
+                            Akses ke atraksi lokal, museum, dan pengalaman unik yang disesuaikan dengan destinasi Anda.
                         </div>
                     </div>
                     <div class="py-5 border-b border-gray-300 cursor-pointer" id="faq6">
                         <div class="flex items-center justify-between group">
-                            <div class="font-medium group-hover:underline">What's included</div>
+                            <div class="font-medium group-hover:underline">Asuransi:</div>
                             <span class="material-symbols-outlined">keyboard_arrow_down</span>
                         </div>
                         <div class="accordion-body max-h-0 overflow-hidden transition-all duration-200 ease-out">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores modi atque quas recusandae deserunt dolorem tempore officia, repellat quos labore laborum fuga velit veniam nam repudiandae molestiae, optio odio ducimus!
+                            Asuransi perjalanan yang komprehensif sudah termasuk untuk kenyamanan Anda.
                         </div>
                     </div>
                 </div>
