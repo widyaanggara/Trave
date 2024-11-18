@@ -45,7 +45,7 @@
                 </div>
             </div>
             <div class="container">
-                <h2>Dashboard Admin</h2>
+                <h2 class="text-lg font-bold">Grafik Pemesanan</h2>
 
                 <!-- Grafik Pemesanan Harian -->
                 
